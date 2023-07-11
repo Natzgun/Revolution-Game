@@ -12,6 +12,7 @@ namespace Vw {
   private:
     sf::RenderWindow window;
     sf::Event evento;
+    JugadorView* jugadorPrincipal;
     int fps;
   public:
     View();

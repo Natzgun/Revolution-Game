@@ -4,9 +4,10 @@ namespace Vw {
 
 
   View::View() {
-    int fps = 60;
+    fps = 60;
     window.create(sf::VideoMode(1280, 720), "Ventana SFML");
     window.setFramerateLimit(fps);
+    jugadorPrincipal = new JugadorView(6, 0.1f);
   }
 
   bool View::isRunning() {
@@ -67,10 +68,10 @@ namespace Vw {
   }
 
   void View::drawJugador(int x, int y) {
-    JugadorView jugadorPrincipal(6, 0.2f);
-    jugadorPrincipal.updateA();
-    jugadorPrincipal.getSprite().move(x,y);
-    window.draw(jugadorPrincipal);
+    //JugadorView jugadorPrincipal(6, 0.2f);
+    jugadorPrincipal->updateA();
+    jugadorPrincipal->getSprite().setPosition(x,y);
+    window.draw(*jugadorPrincipal);
   }
 
   void View::initializeMenu() {
