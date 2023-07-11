@@ -1,8 +1,8 @@
 #ifndef REVOLUTION_GAME_ANIMATION_H
 #define REVOLUTION_GAME_ANIMATION_H
 
-#import <SFML/Graphics.hpp>
-#import <vector>
+#include <SFML/Graphics.hpp>
+#include <vector>
 
 class Animation {
 private:

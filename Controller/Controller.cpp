@@ -7,8 +7,8 @@ namespace Ctlr {
   }
 
   void Controller::ejecutar() {
-    int y = 0;
-    int x = 0;
+    int y = 500;
+    int x = 500;
 
     while (vista.isRunning()) {
       // std::cout << "Running" << std::endl;
