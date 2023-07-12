@@ -17,7 +17,6 @@ JugadorView::JugadorView(int numFrames, float frameTime): numFrames(numFrames), 
     }
     frames.push_back(frameTexture);
   }
-
   sprite.setTexture(frames[currentFrame]);
 }
 
@@ -25,13 +24,13 @@ void JugadorView::updateA() {
   //std::cout << "Aqui esta entrando" << std::endl;
   // std::cout << clock.getElapsedTime().asSeconds()*120 << std::endl;
 
-  if (clock.getElapsedTime().asSeconds()*120 > frameTime)
+  if (clock.getElapsedTime().asSeconds() > frameTime)
   {
     //std::cout << "Estoy dentro" << std::endl;
 
     // Cambiar al siguiente frame
     currentFrame = (currentFrame + 1) % numFrames;
-    getSprite().setTexture(frames[currentFrame]);
+    sprite.setTexture(frames[currentFrame]);
     clock.restart();
 
   }
