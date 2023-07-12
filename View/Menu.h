@@ -14,9 +14,10 @@ class Menu {
 public:
   Menu();
   ~Menu();
-  void initMenu();
+  void initMusic();
   void setBackground();
   sf::Sprite &getSprite();
+  sf::Music &getMusic();
 };
 
 

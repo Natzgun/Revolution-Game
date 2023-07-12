@@ -12,6 +12,8 @@ namespace Vw {
   private:
     sf::RenderWindow window;
     sf::Event evento;
+    JugadorView* jugadorPrincipal;
+    Menu* mainMenu;
     int fps;
   public:
     View();
@@ -31,7 +33,8 @@ namespace Vw {
     bool getKeyboard_D();
     void drawEsfera(int,int,int);
 
-    void initializeMenu();
+    void initMenuMusic();
+    void initMenuBG();
     // Cargar el jugador
     void drawJugador(int, int);
     // void updateJugador();
