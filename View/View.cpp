@@ -7,7 +7,8 @@ namespace Vw {
     fps = 60;
     window.create(sf::VideoMode(1280, 720), "Ventana SFML");
     window.setFramerateLimit(fps);
-    jugadorPrincipal = new JugadorView(6, 0.1f);
+    this->jugadorPrincipal = new JugadorView(6, 0.1f);
+    this->mainMenu = new Menu();
   }
 
   bool View::isRunning() {
@@ -74,11 +75,12 @@ namespace Vw {
     window.draw(*jugadorPrincipal);
   }
 
-  void View::initializeMenu() {
-    Menu main_menu;
-    main_menu.setBackground();
-    window.draw(main_menu.getSprite());
-    //main_menu.initMenu();
+    void View::initMenuBG() {
+        window.draw(mainMenu->getSprite());
+    }
+
+    void View::initMenuMusic() {
+    mainMenu->getMusic();
   }
 
 };

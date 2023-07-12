@@ -1,20 +1,19 @@
 #include "Menu.h"
 
 Menu::Menu() {
-  //initMenu();
+  setBackground();
+  initMusic();
 }
 
 Menu::~Menu() {
   music.stop();
 }
 
-void Menu::initMenu() {
-  std::cout << "Error..." << std::endl;
+void Menu::initMusic() {
   if (!music.openFromFile("../Resources/amazonico.ogg"))
     throw std::runtime_error("No se pudo cargar la musica");
-  std::cout << "Salio Error..." << std::endl;
-  //music.setVolume(100);
-  //music.setVolume(music.getVolume() / 2);
+  music.setVolume(100);
+  music.setVolume(music.getVolume() / 2);
   music.play();
 
 }
@@ -30,4 +29,8 @@ void Menu::setBackground() {
     throw std::runtime_error("No se pudo cargar la imagen");
   }
   backgroundSprite.setTexture(backgroundTexture);
+}
+
+sf::Music &Menu::getMusic() {
+    return music;
 }
