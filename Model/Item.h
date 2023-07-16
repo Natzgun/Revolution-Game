@@ -16,9 +16,8 @@ public:
     //v
     virtual void actualizar();
     virtual ~Item(){}
-    Item(int x,int y):Entidad(x,y){
-
-    };
+    Item(int x,int y):Entidad(x,y){};
+    void imprimir();
 };
 
 

@@ -18,8 +18,10 @@ private:
   // vector de punteros crudos a enemigos
   //
 public:
-  Stage(string matrizStage);
+  Stage(const string& matrizStage);
   void generarMatriz(string file);
+  void actualizar();
+  void imprimir();
 };
 
 

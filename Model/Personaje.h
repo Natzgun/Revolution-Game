@@ -9,7 +9,7 @@
 
 class Personaje : protected Entidad{
 protected:
-    static Vector2d<int> dimension;
+    //static Vector2d<int> dimension;
     unsigned int vida;
     unsigned int rapidez;
     Vector2d<int> velocidad;
@@ -21,6 +21,6 @@ public:
     virtual void actualizar()=0;
     virtual ~Personaje()override = default;
 };
-Vector2d<int> Personaje::dimension = Vector2d(5,10);
+//Vector2d<int> Personaje::dimension = Vector2d(5,10);
 
 #endif //REVOLUTION_GAME_PERSONAJE_H

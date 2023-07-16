@@ -4,8 +4,10 @@
 
 #include "Juego.h"
 
-Juego::Juego() {
+Juego::Juego(string path) {
     p1 = new Jugador();
+    nivel = Stage(path);
+    matrizEscenario = path;
 }
 void Juego::actualizar() {
     p1->actualizar();
