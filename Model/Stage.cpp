@@ -24,19 +24,15 @@ void Stage::generarMatriz(string file) {
     if(archivo.is_open()){
         int matriz [rows][cols];
         while(std::getline(archivo,linea)) {
-            //cout<<"{"<<linea<<"} -> "<<linea.size()<<endl;
             for(int i = 0; i<32;i++){
                 if(primero) {// error primera linea con un espacio en blanco extra
                     kIndex = (2 * i) + 3;
-                    //cout<<"si pasa "<<linea[5]<<" "<<kIndex<<endl;
                 }
                 else
                     kIndex = 2*i;
 
-                //cout<<"{"<<linea[kIndex]<<"}";
                 if(linea[kIndex] == '0') {
                     matriz[c][i] = 0;
-                    //cout<<"["<<matriz[c][i]<<"]";
                 }
                 else if(linea[kIndex] == '1') {
                     matriz[c][i] = 1;
@@ -51,14 +47,11 @@ void Stage::generarMatriz(string file) {
         cout<<endl;
         for(int j=0;j<rows;j++){
             for(int h=0;h<cols;h++){
-                //cout<<"["<<matriz[j][h]<<"] ";
                 if(matriz[j][h] == 1){
-                    unique_ptr<Item> temp = make_unique<Firegun>();
-                    arrItems.push_back(make_unique<Firegun>());
+                    arrItems.push_back(make_unique<Firegun>(j*500,h*500));
                     cout<<"se agraga un nuevo item en "<<j<<","<<h<<endl;
                 }
             }
-            //cout<<endl;
         }
     }
     else{
