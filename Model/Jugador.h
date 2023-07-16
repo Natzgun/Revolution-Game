@@ -23,6 +23,7 @@ public:
     void setPuntos(int puntos);
 
     void actualizar() override;
+    //void coger arma(&Juego);{
     void mostrar();
     ~Jugador()override=default;
 };
