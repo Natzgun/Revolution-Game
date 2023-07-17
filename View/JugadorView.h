@@ -4,17 +4,14 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Animation.h"
+
 using std::string;
 
 class JugadorView: public sf::Drawable {
-  int numFrames;
-  float frameTime;
-  int currentFrame;
-  sf::Clock clock;
-  std::vector<sf::Texture> frames;
-  sf::Sprite sprite;
+  Animation *animation;
 public:
-  JugadorView(int, float);
+  JugadorView(int, float,std::string);
   void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
   void updateA();
   sf::Sprite &getSprite();
