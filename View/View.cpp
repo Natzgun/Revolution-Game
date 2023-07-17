@@ -7,7 +7,7 @@ namespace Vw {
     fps = 60;
     window.create(sf::VideoMode(1280, 720), "Ventana SFML");
     window.setFramerateLimit(fps);
-    this->jugadorPrincipal = new JugadorView(6, 0.1f);
+    this->jugadorPrincipal = new JugadorView(6, 0.1f,"../Resources/Player/Axe/");
     this->mainMenu = new Menu();
   }
 
@@ -69,7 +69,6 @@ namespace Vw {
   }
 
   void View::drawJugador(int x, int y) {
-    //JugadorView jugadorPrincipal(6, 0.2f);
     jugadorPrincipal->updateA();
     jugadorPrincipal->getSprite().setPosition(x,y);
     window.draw(*jugadorPrincipal);

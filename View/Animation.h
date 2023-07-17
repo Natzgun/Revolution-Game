@@ -6,9 +6,16 @@
 
 class Animation {
 private:
-  std::vector<sf::Texture> textures;
+  int numFrames;
+  float frameTime;
+  int currentFrame;
+  sf::Clock clock;
+  std::vector<sf::Texture> frames;
+  sf::Sprite sprite;
 public:
-
+  Animation(int numFrames, float frameTime, std::string path);
+  void animar();
+  sf::Sprite &getSprite();
 };
 
 
