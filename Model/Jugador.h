@@ -6,10 +6,12 @@
 #define REVOLUTION_GAME_JUGADOR_H
 #include "Personaje.h"
 #include <iostream>
+#include <memory>
 
 class Jugador: protected Personaje {
 private:
     bool arriba, abajo, izquierda, derecha;
+    unique_ptr<Item> arma;
     int puntos;
 public:
     Jugador();
@@ -23,6 +25,7 @@ public:
     void setPuntos(int puntos);
 
     void actualizar() override;
+    //void coger arma(&Juego);{
     void mostrar();
     ~Jugador()override=default;
 };

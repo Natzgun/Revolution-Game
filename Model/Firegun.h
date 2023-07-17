@@ -10,6 +10,8 @@ class Firegun: public Item {
 public:
     int balas;
     virtual Proyectil usar(Vector2d<float> dir, Vector2d<int> pos);
+    Firegun()=default;
+    Firegun(int x, int y):Item(x,y){};
     virtual ~Firegun(){};
 };
 

@@ -9,15 +9,18 @@
 
 class Personaje : protected Entidad{
 protected:
+    //static Vector2d<int> dimension;
     unsigned int vida;
     unsigned int rapidez;
     Vector2d<int> velocidad;
     Item* arma;
 public:
     Personaje() : Entidad(){};
-    Personaje(int x, int y) : Entidad(x, y){};
+    Personaje(int x, int y) : Entidad(x, y){
+    };
     virtual void actualizar()=0;
     virtual ~Personaje()override = default;
 };
+//Vector2d<int> Personaje::dimension = Vector2d(5,10);
 
 #endif //REVOLUTION_GAME_PERSONAJE_H

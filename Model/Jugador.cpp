@@ -11,6 +11,8 @@ Jugador::Jugador() {
     derecha = false;
     puntos = 0;
     vida = 1;
+    arma = nullptr;
+
 }
 Jugador::Jugador(int x, int y) : Personaje(x, y) {
     arriba = false;
@@ -21,6 +23,8 @@ Jugador::Jugador(int x, int y) : Personaje(x, y) {
     vida = 1;
     posicion.setX(-500);
     posicion.setY(-500);
+    arma = nullptr;
+
 }
 int Jugador::getPuntos() const {
     return puntos;

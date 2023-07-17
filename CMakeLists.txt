@@ -8,21 +8,30 @@ find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 set(MODEL_SOURCES
         Model/Model.cpp Model/Model.h
         Model/Entidad.cpp Model/Entidad.h
-        Model/Personaje.h Model/Jugador.cpp Model/Jugador.h Model/Esfera.cpp Model/Esfera.h  Model/Juego.cpp Model/Juego.h Model/Personaje.cpp Model/Personaje.h Model/Item.cpp Model/Item.h Model/Firegun.cpp Model/Firegun.h Model/Proyectil.cpp Model/Proyectil.h)
+        Model/Jugador.cpp Model/Jugador.h
+        Model/Esfera.cpp Model/Esfera.h
+        Model/Juego.cpp Model/Juego.h
+        Model/Personaje.cpp Model/Personaje.h
+        Model/Item.cpp Model/Item.h
+        Model/Firegun.cpp Model/Firegun.h
+        Model/Proyectil.cpp Model/Proyectil.h
+        Model/Stage.cpp Model/Stage.h)
 
 set(VIEW_SOURCES
-        View/View.cpp
-        View/View.h
-        View/Imagen.cpp View/Imagen.h View/Animation.cpp View/Animation.h View/JugadorView.cpp View/JugadorView.h View/Menu.cpp View/Menu.h)
+        View/View.cpp View/View.h
+        View/Imagen.cpp View/Imagen.h
+        View/Animation.cpp View/Animation.h
+        View/JugadorView.cpp View/JugadorView.h
+        View/Menu.cpp View/Menu.h)
 
 set(CONTROLLER_SOURCES
-        Controller/Controller.cpp
-        Controller/Controller.h
-        Controller/Invoker.cpp Controller/Invoker.h Controller/Command.cpp Controller/Command.h)
+        Controller/Controller.cpp Controller/Controller.h
+        Controller/Invoker.cpp Controller/Invoker.h
+        Controller/Command.cpp Controller/Command.h)
 
 # Agregar ejecutable
 add_executable(Revolution_Game
-        main.cpp
+        "main.cpp"
         ${MODEL_SOURCES}
         ${VIEW_SOURCES}
         ${CONTROLLER_SOURCES}

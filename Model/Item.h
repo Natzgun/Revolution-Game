@@ -9,9 +9,15 @@
 class Item: public Entidad{
 public:
     int couldown;
+    //velocidad=0;
+    //acel=2;
     virtual Proyectil usar(Vector2d<float> dir, Vector2d<int> pos)=0;
+
+    //v
     virtual void actualizar();
-    virtual ~Item(){};
+    virtual ~Item(){}
+    Item(int x,int y):Entidad(x,y){};
+    void imprimir();
 };
 
 

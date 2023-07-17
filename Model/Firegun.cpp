@@ -9,3 +9,4 @@ Proyectil Firegun::usar(Vector2d<float> dir, Vector2d<int> pos) {
     couldown = 10;
     return Proyectil(dir, pos);
 }
+
