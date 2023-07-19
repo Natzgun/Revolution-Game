@@ -9,7 +9,6 @@ set(MODEL_SOURCES
         Model/Model.cpp Model/Model.h
         Model/Entidad.cpp Model/Entidad.h
         Model/Jugador.cpp Model/Jugador.h
-        Model/Esfera.cpp Model/Esfera.h
         Model/Juego.cpp Model/Juego.h
         Model/Personaje.cpp Model/Personaje.h
         Model/Item.cpp Model/Item.h

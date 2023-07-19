@@ -72,6 +72,8 @@ namespace Vw {
     jugadorPrincipal->updateA();
     jugadorPrincipal->getSprite().setPosition(x,y);
     window.draw(*jugadorPrincipal);
+      jugadorPrincipal->getSprite().setPosition(x+10,y+10);
+      window.draw(*jugadorPrincipal);
   }
 
     void View::initMenuBG() {

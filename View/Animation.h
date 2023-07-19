@@ -18,5 +18,4 @@ public:
   sf::Sprite &getSprite();
 };
 
-
 #endif //REVOLUTION_GAME_ANIMATION_H

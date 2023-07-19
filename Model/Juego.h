@@ -14,12 +14,11 @@ public:
     //ProyectilesEnemigos
     //Proyectiles
     //
-
+    Juego();
     Juego(string mEscenario);
     void actualizar();
     //Verificar colisiones();
     //if(item.vel == 0) es intangible y podra ser recogido por algun personaje
 };
-
 
 #endif //REVOLUTION_GAME_JUEGO_H

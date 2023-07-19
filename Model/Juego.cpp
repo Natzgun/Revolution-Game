@@ -3,7 +3,9 @@
 //
 
 #include "Juego.h"
-
+Juego::Juego() {
+    p1 = new Jugador();
+}
 Juego::Juego(string path) {
     p1 = new Jugador();
     nivel = Stage(path);

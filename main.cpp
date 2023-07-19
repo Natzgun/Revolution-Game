@@ -6,7 +6,6 @@
 #include "Controller/Controller.h"
 
 int main() {
-
   Mdl::Model modelo;
   modelo.myJuego.p1->mostrar();
   modelo.myJuego.p1->setDerecha(true);
