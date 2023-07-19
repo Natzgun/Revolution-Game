@@ -26,6 +26,7 @@ public:
     void setX(T x);
     T getY() const;
     void setY(T y);
+    void setXY(T x,T y);
 };
 template <typename T>
 Vector2d<T>::Vector2d(){x = 0; y = 0;}
@@ -78,5 +79,9 @@ template <typename T>
 void Vector2d<T>::setY(T y) {
     this->y = y;
 }
-
+template <typename T>
+void Vector2d<T>::setXY(T x,T y){
+    this->x = x;
+    this->y = y;
+}
 #endif //REVOLUTION_GAME_VECTOR2D_H

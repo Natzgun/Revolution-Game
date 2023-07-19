@@ -9,11 +9,10 @@ class Juego {
 public:
     Jugador* p1;
     Stage nivel;
-    string matrizEscenario; //useless
+    static vector<unique_ptr<Proyectil>> proyectiles;
     //Escenario(Enemigos, obstaculos, items);
     //ProyectilesEnemigos
     //Proyectiles
-    //
     Juego();
     Juego(string mEscenario);
     void actualizar();

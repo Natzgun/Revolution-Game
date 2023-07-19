@@ -3,6 +3,7 @@
 //
 
 #include "Jugador.h"
+#include "Juego.h"
 
 Jugador::Jugador() {
     arriba = false;
@@ -12,6 +13,7 @@ Jugador::Jugador() {
     puntos = 0;
     vida = 1;
     arma = nullptr;
+    facing.setXY(0,1);
 }
 Jugador::Jugador(int x, int y) : Personaje(x, y) {
     arriba = false;
@@ -23,6 +25,7 @@ Jugador::Jugador(int x, int y) : Personaje(x, y) {
     posicion.setX(-500);
     posicion.setY(-500);
     arma = nullptr;
+    facing.setXY(0,1);
 
 }
 int Jugador::getPuntos() const {
@@ -48,21 +51,27 @@ void Jugador::setDerecha(bool derecha) {
 void Jugador::actualizar() {
     if(arriba){
         posicion.setY(posicion.getY() + 5);
+        facing.setXY(0,1);
     }
     if(abajo){
         posicion.setY(posicion.getY() - 5);
+        facing.setXY(0,-1);
     }
     if(izquierda){
         posicion.setX(posicion.getX() - 5);
+        facing.setXY(-1,0);
     }
     if(derecha){
         posicion.setX(posicion.getX() + 5);
+        facing.setXY(1,0);
     }
 
     //  Actualizar estado:
 
-    if (arma!=nullptr && disparando/*jugador tiene arma y presiona disparar*/)
+    if (arma!=nullptr && disparando/*jugador tiene arma y presiona disparar*/){
       estado = 'd';
+      Juego::proyectiles.push_back(make_unique<Proyectil>(facing,posicion));
+    }
     else if(!arriba && !abajo && !izquierda && !derecha)
       estado = 'q';
     else
