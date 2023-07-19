@@ -11,6 +11,8 @@ public:
     int couldown;
     //velocidad=0;
     //acel=2;
+    int rapi=0;
+    Vector2d<float> facing;
     virtual void usar(Vector2d<float> dir, Vector2d<int> pos)=0;
 
     //v
@@ -18,6 +20,7 @@ public:
     virtual ~Item(){}
     Item(int x,int y):Entidad(x,y){};
     void imprimir();
+    void lanzar(Vector2d<float> dir,Vector2d<int> pos);
 };
 
 
