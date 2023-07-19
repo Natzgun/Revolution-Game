@@ -29,13 +29,13 @@ namespace Vw {
 
 
 
-  /*void View::drawEsfera(int radio, int x, int y) {
+  void View::drawEsfera(int radio, int x, int y) {
     sf::CircleShape sphere(50.f);
     //sphere.setOrigin(x, y);
     sphere.move(x,y);
     sphere.setFillColor(sf::Color::White);
     window.draw(sphere);
-  }*/
+  }
 
     sf::Event& View::getEvent() {
         return evento;

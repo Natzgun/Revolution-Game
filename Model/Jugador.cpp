@@ -58,8 +58,22 @@ void Jugador::actualizar() {
     if(derecha){
         posicion.setX(posicion.getX() + 5);
     }
+
+    //  Actualizar estado:
+
+    if (arma!=nullptr && disparando/*jugador tiene arma y presiona disparar*/)
+      estado = 'd';
+    else if(!arriba && !abajo && !izquierda && !derecha)
+      estado = 'q';
+    else
+      estado = 'm';
+
 }
 
-void Jugador::mostrar() {
+void Jugador::imprimir() {
     std::cout << posicion.getX() << ", " << posicion.getY() << std::endl;
+}
+
+void Jugador::setDisparando(bool disparando) {
+  this->disparando = disparando;
 }

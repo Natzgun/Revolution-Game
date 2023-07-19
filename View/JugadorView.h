@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Animation.h"
-#include "../Util/Vector2d.h"
 #include <vector>
 
 using std::string;

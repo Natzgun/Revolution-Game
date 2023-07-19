@@ -2,7 +2,7 @@
 #define REVOLUTION_GAME_ENTIDAD_H
 
 #include <vector>
-#include "../Util/Vector2d.h"
+#include "Vector2d.h"
 using namespace std;
 
 class Entidad {

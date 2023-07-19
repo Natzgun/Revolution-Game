@@ -7,10 +7,10 @@
 
 int main() {
   Mdl::Model modelo;
-  modelo.myJuego.p1->mostrar();
+  modelo.myJuego.p1->imprimir();
   modelo.myJuego.p1->setDerecha(true);
   modelo.actualizar();
-  modelo.myJuego.p1->mostrar();
+  modelo.myJuego.p1->imprimir();
   Ctlr::Controller controlador;
   controlador.ejecutar();
   return 0;
