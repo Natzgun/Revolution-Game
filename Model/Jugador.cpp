@@ -12,7 +12,6 @@ Jugador::Jugador() {
     puntos = 0;
     vida = 1;
     arma = nullptr;
-
 }
 Jugador::Jugador(int x, int y) : Personaje(x, y) {
     arriba = false;

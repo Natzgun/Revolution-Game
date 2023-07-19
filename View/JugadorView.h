@@ -11,11 +11,16 @@ using std::string;
 
 class JugadorView: public sf::Drawable {
 public:
-  Animation *animation;
-  static std::vector<sf::Texture> torso;
+  Animation *animationP;
+  Animation *animationT;
+  static std::vector<sf::Texture> quieto;
+  static std::vector<sf::Texture> moviendose;
+  static std::vector<sf::Texture> disparando;
+  static std::vector<sf::Texture> lanzando;
   static std::vector<sf::Texture> piernas;
 
-  JugadorView(int, float,std::string);
+  static void init();
+  JugadorView();
   void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
   void updateA();
   sf::Sprite &getSprite();
