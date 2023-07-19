@@ -11,22 +11,28 @@
 class Jugador: protected Personaje {
 private:
     bool arriba, abajo, izquierda, derecha;
+    bool disparando;
+    //bool armaDisponible;
     unique_ptr<Item> arma;
     int puntos;
+    char estado; // quieto moviendose disparando
 public:
     Jugador();
     Jugador(int x, int y);
+
     void setArriba(bool arriba);
     void setAbajo(bool abajo);
     void setIzquierda(bool izquierda);
     void setDerecha(bool derecha);
+    void setDisparando(bool);
 
     int getPuntos() const;
     void setPuntos(int puntos);
 
     void actualizar() override;
-    //void coger arma(&Juego);{
-    void mostrar();
+    //void cogerArma(&Juego); // incompleto
+
+    void imprimir();
     ~Jugador()override=default;
 };
 
