@@ -70,7 +70,7 @@ void Jugador::actualizar() {
 
     if (arma!=nullptr && disparando/*jugador tiene arma y presiona disparar*/){
       estado = 'd';
-      Juego::proyectiles.push_back(make_unique<Proyectil>(facing,posicion));
+      arma->usar(facing,posicion);
     }
     else if(!arriba && !abajo && !izquierda && !derecha)
       estado = 'q';

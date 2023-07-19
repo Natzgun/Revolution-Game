@@ -11,7 +11,7 @@ public:
     int couldown;
     //velocidad=0;
     //acel=2;
-    virtual Proyectil usar(Vector2d<float> dir, Vector2d<int> pos)=0;
+    virtual void usar(Vector2d<float> dir, Vector2d<int> pos)=0;
 
     //v
     virtual void actualizar();
