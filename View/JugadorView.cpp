@@ -22,7 +22,8 @@ sf::Sprite &JugadorView::getSprite() {
 }
 
 void JugadorView::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-  target.draw(this->animationP->getSprite(), states);
+  target.draw(animationP->getSprite(), states);
+  target.draw(animationT->getSprite(), states);
 }
 
 void JugadorView::init() {
@@ -31,6 +32,11 @@ void JugadorView::init() {
   lanzando = Animation::cargarImagenes(8,"../Resources/Player/sprPWalkThrow_");
   piernas = Animation::cargarImagenes(16,"../Resources/Player/sprBikerLegs_");
   quieto = Animation::cargarImagenes(3,"../Resources/Player/sprPPickup_");
+}
+
+void JugadorView::setPosicion(float x, float y) {
+  animationP->getSprite().setPosition(x,y);
+  animationT->getSprite().setPosition(x,y);
 }
 
 /*void JugadorView::draw() {

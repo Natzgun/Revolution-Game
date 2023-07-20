@@ -15,7 +15,6 @@ void Menu::initMusic() {
   music.setVolume(100);
   music.setVolume(music.getVolume() / 2);
   music.play();
-
 }
 
 sf::Sprite &Menu::getSprite() {

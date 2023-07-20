@@ -7,13 +7,13 @@ namespace Ctlr {
   }
 
   void Controller::ejecutar() {
-    int y = 1;
-    int x = 1;
+    int y = 0;
+    int x = 0;
 
     while (vista.isRunning()) {
       // std::cout << "Running" << std::endl;
       // vista.actualizarVista();
-      vista.getClear();
+      //vista.getClear();
       while (vista.getVentanaPollEvent()) {
         switch (vista.getEvent().type) {
           // El 0 = Closed
@@ -43,11 +43,10 @@ namespace Ctlr {
         //vista.drawEsfera(50, x, y);
         std::cout << "Tecla D presionada" << std::endl;
       }
-      vista.initMenuBG();
-      vista.drawJugador(x,y);
-      // vista.drawEsfera(50, x, y);
-      vista.getDisplay();
+      //vista.drawMenuBG();
+      vista.getJuego().j1->setPosicion(x,y);
+      vista.actualizar();
+      vista.draw();
     }
   }
-
 }

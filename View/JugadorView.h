@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Animation.h"
-#include <vector>
 
 using std::string;
 
@@ -20,6 +19,7 @@ public:
 
   static void init();
   JugadorView();
+  void setPosicion(float, float) ;
   void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
   void updateA();
   sf::Sprite &getSprite();

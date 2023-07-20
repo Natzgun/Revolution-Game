@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "JugadorView.h"
+#include "JuegoView.h"
 #include "Menu.h"
 
 namespace Vw {
@@ -12,9 +13,9 @@ namespace Vw {
   private:
     sf::RenderWindow window;
     sf::Event evento;
+    JuegoView juego;
     JugadorView* jugadorPrincipal;
     Menu* mainMenu;
-    int fps;
   public:
     View();
     bool isRunning();
@@ -22,19 +23,20 @@ namespace Vw {
     sf::Event& getEvent();
     bool getVentanaPollEvent();
     void getCloseWindow();
+    JuegoView &getJuego();
     void getDisplay();
     void getClear();
-    void actualizarVista();
+    void actualizar();
+    void draw();
     bool getEventTypeClose();
     // Keyboard functions
     bool getKeyboard_W();
     bool getKeyboard_A();
     bool getKeyboard_S();
     bool getKeyboard_D();
-    void drawEsfera(int,int,int);
 
     void initMenuMusic();
-    void initMenuBG();
+    void drawMenuBG();
     // Cargar el jugador
     void drawJugador(int, int);
     // void updateJugador();
