@@ -17,13 +17,12 @@ const sf::Sprite &JuegoView::getsprite() const {
 void JuegoView::actualizar() {
   j1->updateA();
   targetTexture.clear();
-  /*sf::Texture tx;
-  tx.loadFromFile("../Resources/wallMenu2.jpg");
-  sf::Sprite bg;
-  bg.setTexture(tx);
-  targetTexture.draw(bg);*/
   targetTexture.draw(*j1);
   targetTexture.display();
   sprite.setTexture(targetTexture.getTexture());
+}
+
+JuegoView::~JuegoView() {
+  delete j1;
 }
 

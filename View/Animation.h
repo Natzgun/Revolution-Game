@@ -6,20 +6,21 @@
 
 class Animation {
 private:
-  int numFrames;
+  int numFrames{};
   float frameTime;
-  int currentFrame;
+  int currentFrame{};
   sf::Clock clock;
-  std::vector<sf::Texture>* frames;
+  std::vector<sf::Texture>* frames{};
   sf::Sprite sprite;
 public:
-  Animation(){};
+  Animation();
   Animation(std::vector<sf::Texture>* _frames);
   void setTetures(std::vector<sf::Texture>* _frames);
   void animar();
   sf::Sprite &getSprite();
 
-  static std::vector<sf::Texture> cargarImagenes(int n, std::string path);
+  static std::vector<sf::Texture> cargarImagenes(const int& n, const std::string& path);
+  static sf::Texture cargarImagen(const std::string& path);
 };
 
 #endif //REVOLUTION_GAME_ANIMATION_H

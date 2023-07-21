@@ -2,7 +2,6 @@
 #define REVOLUTION_GAME_JUGADORVIEW_H
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include "Animation.h"
 
 using std::string;
@@ -11,6 +10,7 @@ class JugadorView: public sf::Drawable {
 public:
   Animation *animationP;
   Animation *animationT;
+
   static std::vector<sf::Texture> quieto;
   static std::vector<sf::Texture> moviendose;
   static std::vector<sf::Texture> disparando;
@@ -19,10 +19,11 @@ public:
 
   static void init();
   JugadorView();
-  void setPosicion(float, float) ;
+  void setPosicion(float, float) const ;
   void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
   void updateA();
-  sf::Sprite &getSprite();
+  sf::Sprite &getSprite() const;
+  ~JugadorView();
 };
 
 #endif //REVOLUTION_GAME_JUGADORVIEW_H

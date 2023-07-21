@@ -17,6 +17,7 @@ public:
   JuegoView();
   void actualizar();
   const sf::Sprite & getsprite() const;
+  ~JuegoView();
 };
 
 #endif //REVOLUTION_GAME_JUEGOVIEW_H

@@ -1,4 +1,3 @@
-
 #include "JugadorView.h"
 
 std::vector<sf::Texture> JugadorView::quieto = {};
@@ -17,7 +16,7 @@ void JugadorView::updateA() {
   this->animationT->animar();
 }
 
-sf::Sprite &JugadorView::getSprite() {
+sf::Sprite &JugadorView::getSprite() const {
   return this->animationP->getSprite();
 }
 
@@ -34,9 +33,14 @@ void JugadorView::init() {
   quieto = Animation::cargarImagenes(3,"../Resources/Player/sprPPickup_");
 }
 
-void JugadorView::setPosicion(float x, float y) {
+void JugadorView::setPosicion(float x, float y) const {
   animationP->getSprite().setPosition(x,y);
   animationT->getSprite().setPosition(x,y);
+}
+
+JugadorView::~JugadorView() {
+  delete animationP;
+  delete animationT;
 }
 
 /*void JugadorView::draw() {
