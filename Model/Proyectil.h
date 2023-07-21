@@ -10,10 +10,10 @@ class Proyectil:public Entidad {
 private:
     // VEc2d dimension, posicion, posicioncentral
     constexpr static const float rapi = 15;
-    Vector2d<int> velocidad;
+    Vector2d<float> velocidad;
 public:
     Proyectil();
-    Proyectil(Vector2d<float> unitario, Vector2d<int> posicion);
+    Proyectil(Vector2d<float> unitario, Vector2d<float> posicion);
     virtual void actualizar();
     virtual ~Proyectil(){};
 };

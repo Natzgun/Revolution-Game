@@ -15,7 +15,7 @@ Jugador::Jugador() {
     arma = nullptr;
     facing.setXY(0,1);
 }
-Jugador::Jugador(int x, int y) : Personaje(x, y) {
+Jugador::Jugador(float x, float y) : Personaje(x, y) {
     arriba = false;
     abajo = false;
     izquierda = false;
