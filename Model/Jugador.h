@@ -19,7 +19,7 @@ private:
     char estado; // quieto moviendose disparando
 public:
     Jugador();
-    Jugador(int x, int y);
+    Jugador(float x, float y);
 
     void setArriba(bool arriba);
     void setAbajo(bool abajo);

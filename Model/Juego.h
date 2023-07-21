@@ -4,12 +4,13 @@
 
 #include "Jugador.h"
 #include "Stage.h"
+#include "memory"
 
 class Juego {
 public:
     Jugador* p1;
     Stage nivel;
-    static vector<unique_ptr<Proyectil>> proyectiles;
+    static vector<std::unique_ptr<Proyectil>> proyectiles;
     //Escenario(Enemigos, obstaculos, items);
     //ProyectilesEnemigos
     //Proyectiles
