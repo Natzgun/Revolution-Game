@@ -3,14 +3,15 @@
 //
 
 #include "Juego.h"
+vector<unique_ptr<Proyectil>> Juego::proyectiles = {};
 Juego::Juego() {
-    p1 = new Jugador();
+  p1 = new Jugador();
+  nivel = Stage("../Resources/matrizStage.csv");
 }
 Juego::Juego(string path) {
-    p1 = new Jugador();
-    nivel = Stage(path);
-    matrizEscenario = path;
+  p1 = new Jugador();
+  nivel = Stage(path);
 }
 void Juego::actualizar() {
-    p1->actualizar();
+  p1->actualizar();
 }

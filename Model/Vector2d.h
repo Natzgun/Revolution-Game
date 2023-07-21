@@ -18,14 +18,14 @@ public:
     Vector2d<T> operator-(const Vector2d<T>& other) const;
     Vector2d<T> operator+(const Vector2d<T>& other) const;
     Vector2d<T> operator*(T scalar) const;
-    template <typename U>
-    Vector2d<U> operator/(U scalar) const;
+    Vector2d<T> operator/(T scalar) const;
     float modulo() const;
     Vector2d<float> vUnitario();
     T getX() const;
     void setX(T x);
     T getY() const;
     void setY(T y);
+    void setXY(T x,T y);
 };
 template <typename T>
 Vector2d<T>::Vector2d(){x = 0; y = 0;}
@@ -49,10 +49,9 @@ Vector2d<T> Vector2d<T>::operator*(T scalar) const {
     return Vector2d<T>(x * scalar, y * scalar);
 }
 template <typename T>
-template <typename U>
-Vector2d<U> Vector2d<T>::operator/(U scalar) const {
+Vector2d<T> Vector2d<T>::operator/(T scalar) const {
     assert(scalar != 0);
-    return Vector2d<U>(x / scalar, y / scalar);
+    return Vector2d<T>(x / scalar, y / scalar);
 }
 template <typename T>
 float Vector2d<T>::modulo() const {
@@ -78,5 +77,9 @@ template <typename T>
 void Vector2d<T>::setY(T y) {
     this->y = y;
 }
-
+template <typename T>
+void Vector2d<T>::setXY(T x,T y){
+    this->x = x;
+    this->y = y;
+}
 #endif //REVOLUTION_GAME_VECTOR2D_H

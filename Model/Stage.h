@@ -13,7 +13,7 @@
 
 class Stage {
 private:
-    int rows,cols;
+    static int rows,cols;
     std::vector<unique_ptr<Item>> arrItems;
   // vector de punteros crudos a enemigos
   //

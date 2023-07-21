@@ -9,6 +9,7 @@ namespace Mdl {
     class Model {
     public:
         Juego myJuego;
+        /*Menu myMenu;*/
         // Atributos y datos del modelo
 
         Model();

@@ -5,13 +5,14 @@
 #ifndef REVOLUTION_GAME_FIREGUN_H
 #define REVOLUTION_GAME_FIREGUN_H
 #include "Item.h"
+#include "memory"
 
 class Firegun: public Item {
 public:
     int balas;
-    virtual Proyectil usar(Vector2d<float> dir, Vector2d<int> pos);
+    virtual void usar(Vector2d<float> dir, Vector2d<float> pos);
     Firegun()=default;
-    Firegun(int x, int y):Item(x,y){};
+    Firegun(float x, float y);
     virtual ~Firegun(){};
 };
 

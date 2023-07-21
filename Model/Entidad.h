@@ -7,21 +7,21 @@ using namespace std;
 
 class Entidad {
 protected:
-    Vector2d<int> dimension;
-    Vector2d<int> posicion;
-    Vector2d<int> posicion_central;
+    Vector2d<float> dimension;
+    Vector2d<float> posicion;
+    Vector2d<float> posicion_central;
 public:
     Entidad();
-    Entidad(int x, int y);
+    Entidad(float x, float y);
 
-    const Vector2d<int> &getPosicion() const;
-    void setPosicion(int x,int y);
+    const Vector2d<float> &getPosicion() const;
+    void setPosicion(float x,float y);
 
-    const Vector2d<int> &getPosicionCentral() const;
-    void setPosicionCentral(int x, int y);
+    const Vector2d<float> &getPosicionCentral() const;
+    void setPosicionCentral(float x, float y);
 
-    const Vector2d<int> &getDimension() const;
-    void setDimension(int x, int y);
+    const Vector2d<float> &getDimension() const;
+    void setDimension(float x, float y);
 
     virtual void actualizar() = 0;
     virtual ~Entidad() = default;

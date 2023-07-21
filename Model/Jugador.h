@@ -12,13 +12,14 @@ class Jugador: protected Personaje {
 private:
     bool arriba, abajo, izquierda, derecha;
     bool disparando;
+    Vector2d<float> facing;
     //bool armaDisponible;
     unique_ptr<Item> arma;
     int puntos;
     char estado; // quieto moviendose disparando
 public:
     Jugador();
-    Jugador(int x, int y);
+    Jugador(float x, float y);
 
     void setArriba(bool arriba);
     void setAbajo(bool abajo);

@@ -1,30 +1,30 @@
 #include "Entidad.h"
 
 Entidad::Entidad(){
-    posicion = Vector2d<int>();
+    posicion = Vector2d<float>();
 }
-Entidad::Entidad(int x, int y){
+Entidad::Entidad(float x, float y){
     posicion.setX(x);
     posicion.setY(y);
 }
-const Vector2d<int> &Entidad::getPosicion() const {
+const Vector2d<float> &Entidad::getPosicion() const {
     return posicion;
 }
-void Entidad::setPosicion(int x, int y) {
+void Entidad::setPosicion(float x, float y) {
     posicion.setX(x);
     posicion.setY(y);
 }
-const Vector2d<int> &Entidad::getPosicionCentral() const {
+const Vector2d<float> &Entidad::getPosicionCentral() const {
     return posicion_central;
 }
-void Entidad::setPosicionCentral(int x, int y) {
+void Entidad::setPosicionCentral(float x, float y) {
     posicion_central.setX(x);
     posicion_central.setY(y);
 }
-const Vector2d<int> &Entidad::getDimension() const {
+const Vector2d<float> &Entidad::getDimension() const {
     return dimension;
 }
-void Entidad::setDimension(int x, int y) {
+void Entidad::setDimension(float x, float y) {
     dimension.setY(x);
     dimension.setY(y);
 }

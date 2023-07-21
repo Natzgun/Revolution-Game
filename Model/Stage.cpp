@@ -8,10 +8,11 @@
 #include <sstream>
 #include <memory>
 
-
+int Stage::rows = 18;//720
+int Stage::cols = 32;//1280
 Stage::Stage(const string& matrizStage) {
-    rows = 18;
-    cols = 32;
+  generarMatriz(matrizStage);
+
 }
 
 void Stage::generarMatriz(string file) {
@@ -50,7 +51,7 @@ void Stage::generarMatriz(string file) {
         for(int j=0;j<rows;j++){
             for(int h=0;h<cols;h++){
                 if(matriz[j][h] == 1){
-                    arrItems.push_back(make_unique<Firegun>(j*500,h*500));
+                    arrItems.push_back(make_unique<Firegun>(j*40,h*40));
                     cout<<"se agraga un nuevo item en "<<j<<","<<h<<endl;
 
                 }
