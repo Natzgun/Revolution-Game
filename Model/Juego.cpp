@@ -18,5 +18,6 @@ void Juego::actualizar() {
   for(int i = 0; i<Juego::proyectiles.size();i++){
     proyectiles[i]->actualizar();
   }
+  nivel.actualizar();
 }
 
