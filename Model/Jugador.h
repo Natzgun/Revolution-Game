@@ -29,6 +29,7 @@ public:
 
     int getPuntos() const;
     void setPuntos(int puntos);
+    Vector2d<float> getPos();
 
     void actualizar() override;
     //void cogerArma(&Juego); // incompleto

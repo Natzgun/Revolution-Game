@@ -50,11 +50,11 @@ void Jugador::setDerecha(bool derecha) {
 
 void Jugador::actualizar() {
     if(arriba){
-        posicion.setY(posicion.getY() + 5);
+        posicion.setY(posicion.getY() - 5);
         facing.setXY(0,1);
     }
     if(abajo){
-        posicion.setY(posicion.getY() - 5);
+        posicion.setY(posicion.getY() + 5);
         facing.setXY(0,-1);
     }
     if(izquierda){
@@ -85,4 +85,8 @@ void Jugador::imprimir() {
 
 void Jugador::setDisparando(bool disparando) {
   this->disparando = disparando;
+}
+
+Vector2d<float> Jugador::getPos() {
+  return posicion;
 }

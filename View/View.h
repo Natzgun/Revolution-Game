@@ -26,10 +26,11 @@ namespace Vw {
     JuegoView &getJuego();
     void getDisplay();
     void getClear();
-    void actualizar();
+    void actualizar(sf::Vector2f, sf::Vector2i);
     void draw();
     bool getEventTypeClose();
     // Keyboard functions
+    sf::Vector2<int> getMousePos();
     bool getKeyboard_W();
     bool getKeyboard_A();
     bool getKeyboard_S();

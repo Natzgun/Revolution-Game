@@ -35,8 +35,7 @@ add_executable(Revolution_Game
         "main.cpp"
         ${MODEL_SOURCES}
         ${VIEW_SOURCES}
-        ${CONTROLLER_SOURCES}
-        )
+        ${CONTROLLER_SOURCES})
 
 # Esta era la manera antigua pero lo guardamos por siacaso
 # add_executable(Revolution_Game main.cpp Model/Model.cpp Model/Model.h View/View.cpp View/View.h Controller/Controller.cpp Controller/Controller.h)

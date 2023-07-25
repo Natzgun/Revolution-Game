@@ -44,3 +44,7 @@ sf::Texture Animation::cargarImagen(const std::string& path) {
   tx.loadFromFile(path);
   return tx;
 }
+
+void Animation::setPos(sf::Sprite& sp, const float & x, const float & y) {
+  sp.setPosition(x,y);
+}

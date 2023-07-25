@@ -14,7 +14,7 @@ int main() {
   modelo.myJuego.p1->imprimir();
   Ctlr::Controller controlador;
   controlador.ejecutar();
-  Juego miJuego;
+  //Juego miJuego;
 
   return 0;
 }

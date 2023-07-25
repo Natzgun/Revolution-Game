@@ -9,6 +9,7 @@ void ProyectilV::init() {
 }
 
 ProyectilV::ProyectilV() {
+  sprite.setOrigin(sprite.getLocalBounds().width/2,sprite.getLocalBounds().height/2);
 }
 
 void ProyectilV::setPosicion(float x, float y) {

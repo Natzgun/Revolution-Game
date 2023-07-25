@@ -16,7 +16,7 @@ public:
     //Proyectiles
     Juego();
     Juego(string mEscenario);
-    void actualizar();
+    void actualizar() const;
     //Verificar colisiones();
     //if(item.vel == 0) es intangible y podra ser recogido por algun personaje
 };

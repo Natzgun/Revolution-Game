@@ -12,6 +12,9 @@ Juego::Juego(string path) {
   p1 = new Jugador();
   nivel = Stage(path);
 }
-void Juego::actualizar() {
+void Juego::actualizar() const {
   p1->actualizar();
+  for(const auto & proyectile : proyectiles){
+    proyectile->actualizar();
+  }
 }
