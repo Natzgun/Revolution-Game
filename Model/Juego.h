@@ -16,7 +16,7 @@ public:
     //ProyectilesEnemigos
     //Proyectiles
     Juego();
-    Juego(string mEscenario);
+    Juego(string);
     void actualizar();
     //Verificar colisiones();
     //if(item.vel == 0) es intangible y podra ser recogido por algun personaje
