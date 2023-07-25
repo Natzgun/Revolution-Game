@@ -10,6 +10,7 @@ class Juego {
 public:
     Jugador* p1;
     Stage nivel;
+    static string pathNivel;
     static vector<std::unique_ptr<Proyectil>> proyectiles;
     //Escenario(Enemigos, obstaculos, items);
     //ProyectilesEnemigos

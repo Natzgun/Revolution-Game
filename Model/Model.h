@@ -4,12 +4,14 @@
 // Archivo Model.h
 #pragma once
 #include "Juego.h"
+#include "MainMenu.h"
 
 namespace Mdl {
     class Model {
     public:
         Juego myJuego;
-        /*Menu myMenu;*/
+        MainMenu myMenu;
+
         // Atributos y datos del modelo
 
         Model();
