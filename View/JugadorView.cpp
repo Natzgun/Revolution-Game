@@ -22,7 +22,7 @@ JugadorView::JugadorView(){
 }
 
 void JugadorView::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
-  capturarEventos();
+  manejarEventos();
   animar();
   setPosicion(pos_.x, pos_.y);
   setDireccion(dir_.x, dir_.y);
@@ -30,7 +30,11 @@ void JugadorView::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
 
 void JugadorView::animar(){
   animationP->animar();
-  animationT->animar();
+  if(animationT->animar()){
+    if(lclick){lclick = false;}
+    else if(rclick){rclick = false;}
+    animationT->setTetures(&quieto);
+  }
 }
 
 sf::Sprite &JugadorView::getSprite() const {
@@ -61,17 +65,30 @@ JugadorView::~JugadorView() {
   delete animationT;
 }
 
-void JugadorView::capturarEventos() {
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+void JugadorView::manejarEventos() {
+  //mover en eje y
+  if (!down && sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     up = true;
-  else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+  else if (!up && sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     down = true;
-  else{up = false; down = false;}
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+  else {up = false; down = false;}
+  //mover en eje x
+  if (!right && sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     left = true;
-  else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+  else if (!left && sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     right = true;
-  else{left = false; right = false;}
+  else {left = false; right = false;}
+  //disparar
+  if(!(lclick || rclick)) {
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+      lclick = true;
+      animationT->setTetures(&disparando);
+    }
+    else if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+      rclick = true;
+      animationT->setTetures(&lanzando);
+    }
+  }
 }
 
 void JugadorView::setDireccion(float x, float y) {

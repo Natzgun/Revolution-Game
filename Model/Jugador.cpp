@@ -22,8 +22,6 @@ Jugador::Jugador(float x, float y) : Personaje(x, y) {
     derecha = false;
     puntos = 0;
     vida = 1;
-    posicion.setX(-500);
-    posicion.setY(-500);
     arma = nullptr;
     facing.setXY(0,1);
 

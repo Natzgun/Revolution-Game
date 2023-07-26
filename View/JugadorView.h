@@ -9,7 +9,7 @@ using std::string;
 
 class JugadorView: public sf::Drawable {
 public:
-  bool up, down, right, left;
+  bool up, down, right, left, lclick, rclick;
   int estado;
   float ang = 0.7f;
   Animation *animationP;
@@ -27,7 +27,7 @@ public:
   JugadorView();
   void setPosicion(float, float) const;
   void setDireccion(float, float) ;
-  void capturarEventos();
+  void manejarEventos();
   void animar();
   void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
   void actualizar(sf::Vector2f, sf::Vector2i);

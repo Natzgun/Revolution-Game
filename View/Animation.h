@@ -19,7 +19,8 @@ public:
   Animation();
   Animation(std::vector<sf::Texture>* _frames);
   void setTetures(std::vector<sf::Texture>* _frames);
-  void animar();
+  //void animar();
+  bool animar();
   sf::Sprite &getSprite();
 
   static std::vector<sf::Texture> cargarImagenes(const int& n, const std::string& path);
