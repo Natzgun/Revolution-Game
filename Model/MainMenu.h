@@ -8,11 +8,6 @@
 
 class MainMenu {
   private:
-    bool enterKey;
-    bool upKey;
-    bool downKey;
-
-  public:
     int looking;
     // 0 = startJuego
     // 1 = modePlayer
@@ -25,9 +20,18 @@ class MainMenu {
     bool chooseLevel;
     bool closeGame;
 
-    int level;
+    int lookingLevel;
+    void actualizarLooking(int&,int);
+    void doChooseLevel();
+    void doMainMenu();
+  public:
+    bool enterKey;
+    bool upKey;
+    bool downKey;
     MainMenu();
     void actualizar();
+
+
 };
 
 
