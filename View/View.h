@@ -7,6 +7,7 @@
 #include "JugadorView.h"
 #include "JuegoView.h"
 #include "Menu.h"
+#include "MenuView.h"
 
 namespace Vw {
   class View {
@@ -14,8 +15,9 @@ namespace Vw {
     sf::RenderWindow window;
     sf::Event evento;
     JuegoView juego;
-    JugadorView* jugadorPrincipal;
-    Menu* mainMenu;
+    MenuView mainMenu;
+    // JugadorView* jugadorPrincipal;
+    // Menu* mainMenu;
   public:
     View();
     bool isRunning();
@@ -35,10 +37,10 @@ namespace Vw {
     bool getKeyboard_S();
     bool getKeyboard_D();
 
-    void initMenuMusic();
+    //void initMenuMusic();
     void drawMenuBG();
     // Cargar el jugador
-    void drawJugador(int, int);
+    //void drawJugador(int, int);
     // void updateJugador();
 
   };

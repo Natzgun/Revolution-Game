@@ -6,8 +6,9 @@ namespace Vw {
     window.create(sf::VideoMode(1280, 720), "Ventana SFML");
     window.setFramerateLimit(60);
     JugadorView::init();
-    this->jugadorPrincipal = new JugadorView();
-    this->mainMenu = new Menu();
+    Menu::init();
+    // this->jugadorPrincipal = new JugadorView();
+    // this->mainMenu = new Menu();
   }
   bool View::isRunning() {
     return window.isOpen();
@@ -19,7 +20,8 @@ namespace Vw {
     window.display();
   }
   void View::actualizar() {
-    juego.actualizar();
+    //juego.actualizar();
+    mainMenu.actualizar();
   }
   sf::Event& View::getEvent() {
       return evento;
@@ -51,11 +53,13 @@ namespace Vw {
     window.draw(*jugadorPrincipal);
   }*/
   void View::drawMenuBG() {
-    window.draw(mainMenu->getSprite());
+    window.clear();
+    window.draw(mainMenu.getSprite());
+    window.display();
   }
-  void View::initMenuMusic() {
+  /*void View::initMenuMusic() {
     mainMenu->getMusic();
-  }
+  }*/
 
   void View::draw() {
     window.clear();

@@ -26,27 +26,27 @@ namespace Ctlr {
       if (vista.getKeyboard_W()) {
         y -= 5;
         //vista.drawEsfera(50, x , y);
-        std::cout << "Tecla W presionada" << std::endl;
+        //std::cout << "Tecla W presionada" << std::endl;
       }
       if (vista.getKeyboard_A()) {
         x -= 5;
         //vista.drawEsfera(50, x, y);
-        std::cout << "Tecla A presionada" << std::endl;
+        //std::cout << "Tecla A presionada" << std::endl;
       }
       if (vista.getKeyboard_S()) {
         y += 5;
         //vista.drawEsfera(50, x, y);
-        std::cout << "Tecla S presionada" << std::endl;
+        //std::cout << "Tecla S presionada" << std::endl;
       }
       if (vista.getKeyboard_D()) {
         x += 5;
         //vista.drawEsfera(50, x, y);
-        std::cout << "Tecla D presionada" << std::endl;
+        //std::cout << "Tecla D presionada" << std::endl;
       }
-      //vista.drawMenuBG();
+      vista.drawMenuBG();
       vista.getJuego().j1->setPosicion(x,y);
       vista.actualizar();
-      vista.draw();
+      //vista.draw();
     }
   }
 }
