@@ -3,7 +3,6 @@
 
 // Archivo Controller.h
 #pragma once
-//#include <SFML/Window/Event.hpp>
 #include "../Model/Model.h"
 #include "../View/View.h"
 
@@ -15,6 +14,8 @@ namespace Ctlr {
   public:
     Controller();
     void ejecutar();
+    void toJuegoModel();
+    void toJuegoView();
   };
 };
 

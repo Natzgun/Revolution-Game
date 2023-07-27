@@ -21,6 +21,7 @@ namespace Vw {
     bool isRunning();
     // No se deben llamarse gets
     sf::Event& getEvent();
+    sf::Vector2<int> windowSize();
     bool getVentanaPollEvent();
     void getCloseWindow();
     JuegoView &getJuego();

@@ -11,7 +11,7 @@
 class Jugador: protected Personaje {
 private:
     bool arriba, abajo, izquierda, derecha;
-    bool disparando;
+    bool disparando, lclick;
     Vector2d<float> facing;
     //bool armaDisponible;
     unique_ptr<Item> arma;

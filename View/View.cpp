@@ -71,4 +71,11 @@ namespace Vw {
   sf::Vector2<int> View::getMousePos() {
     return sf::Mouse::getPosition(window);
   }
+
+  sf::Vector2<int> View::windowSize(){
+    sf::Vector2u win = window.getSize();
+    sf::Vector2i v;
+    v.x = win.x/2; v.y = win.y/2;
+    return v;
+  }
 };
