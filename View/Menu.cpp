@@ -49,4 +49,5 @@ void Menu::init() {
 
 void Menu::draw(sf::RenderTarget &target, sf::RenderStates states) const {
   target.draw(animaMenu->getSprite(), states);
+
 }

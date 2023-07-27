@@ -8,15 +8,10 @@
 class Menu: public sf::Drawable {
 public:
   Animation *animaMenu;
-
   static std::vector<sf::Texture> menuTexture;
-
-  sf::Font font;
   sf::Music music;
-  //sf::Texture backgroundTexture;
+  sf::Texture backgroundTexture;
   sf::Sprite backgroundSprite;
-  std::vector<sf::Text> buttons;
-  int selectedItem;
 
   Menu();
   ~Menu();
