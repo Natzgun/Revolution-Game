@@ -15,7 +15,7 @@ namespace Vw {
     sf::RenderWindow window;
     sf::Event evento;
     JuegoView juego;
-    MenuView mainMenu;
+    MenuView* mainMenu;
     // JugadorView* jugadorPrincipal;
     // Menu* mainMenu;
   public:

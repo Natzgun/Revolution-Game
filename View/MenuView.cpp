@@ -4,9 +4,15 @@
 
 #include "MenuView.h"
 
+std::vector<sf::Texture> MenuView::menuTexture = {};
+
 MenuView::MenuView() {
-  Menu::init();
-  this->mn1 = new Menu();
+  //MenuView::init();
+  //this->mn1 = new Menu();
+  this->animaMenu = new Animation(&menuTexture);
+  this->animaMenu->getSprite().setScale(1280/960.0,720/540.0);
+  initMusic();
+
   targetTexture.create(1280,720);
   buttonTextures[0] = Animation::cargarImagen("../Resources/revolutionLogo.png");
   buttonTextures[1] = Animation::cargarImagen("../Resources/startGame.png");
@@ -21,9 +27,11 @@ MenuView::MenuView() {
 }
 
 void MenuView::actualizar() {
-  mn1->updateAnimation();
+  //mn1->updateAnimation();
+  updateAnimation();
   targetTexture.clear();
-  targetTexture.draw(*mn1);
+  //targetTexture.draw(*mn1);
+  targetTexture.draw(animaMenu->getSprite());
   targetTexture.draw(buttons[0]);
   targetTexture.draw(buttons[1]);
   targetTexture.draw(buttons[2]);
@@ -36,9 +44,35 @@ const sf::Sprite &MenuView::getSprite() const {
 }
 
 MenuView::~MenuView() {
-  delete mn1;
+  //delete mn1;
+  delete animaMenu;
+  music.stop();
 }
 
 void MenuView::handleButtonClick(const sf::Vector2f &mousePosition) {
 
+}
+
+void MenuView::init() {
+  menuTexture = Animation::cargarImagenes(31, "../Resources/MenuPrincipal/wallMenu_100ms_");
+}
+
+void MenuView::initMusic() {
+  if (!music.openFromFile("../Resources/amazonico.ogg"))
+    throw std::runtime_error("No se pudo cargar la musica");
+  music.setVolume(100);
+  music.setVolume(music.getVolume() / 2);
+  music.play();
+}
+
+void MenuView::updateAnimation() {
+  this->animaMenu->animar();
+}
+
+void MenuView::draw(sf::RenderTarget &target, sf::RenderStates states) const {
+  target.draw(animaMenu->getSprite(), states);
+}
+
+sf::Music &MenuView::getMusic() {
+  return music;
 }
