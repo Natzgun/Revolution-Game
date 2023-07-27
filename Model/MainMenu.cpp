@@ -53,26 +53,26 @@ void MainMenu::doChooseLevel() {
     switch (looking) {
       case 0:
         cout << "eligiendo level 1 ";
-        Juego::pathNivel = "../Resources/Niveles/Nivel-1.csv";
+        Juego::pathNivel += "1.csv";
         break;
       case 1:
         cout << "eligiendo level 2 ";
-        Juego::pathNivel = "../Resources/Niveles/Nivel-2.csv";
+        Juego::pathNivel += "2.csv";
         break;
       case 2:
         cout << "eligiendo level 3 ";
-        Juego::pathNivel = "../Resources/Niveles/Nivel-3.csv";
+        Juego::pathNivel += "3.csv";
         break;
       case 3:
         cout << "eligiendo level 4 ";
-        Juego::pathNivel = "../Resources/Niveles/Nivel-4.csv";
+        Juego::pathNivel += "4.csv";
         break;
       case 4:
         cout << "eligiendo level 5 ";
-        Juego::pathNivel = "../Resources/Niveles/Nivel-5.csv";
+        Juego::pathNivel += "5.csv";
         break;
       default:
-        Juego::pathNivel = "../Resources/Niveles/Nivel-1.csv";
+        Juego::pathNivel += "1.csv";
     }
 
   }

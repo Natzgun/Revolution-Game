@@ -8,14 +8,20 @@
 
 namespace Mdl {
     class Model {
+    private:
+      Juego *myJuego ;
+      MainMenu *myMenu;
+      string estado;
     public:
-        Juego myJuego;
-        MainMenu myMenu;
 
         // Atributos y datos del modelo
 
         Model();
         void actualizar();
+        ~Model(){
+          delete myJuego;
+          delete myMenu;
+        }
         // Métodos y funciones relacionados con la lógica y los datos del modelo
     };
 };

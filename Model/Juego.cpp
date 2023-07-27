@@ -3,7 +3,7 @@
 //
 
 #include "Juego.h"
-string Juego::pathNivel = "../Resources/Niveles/Nivel-1.csv";
+string Juego::pathNivel = "../Resources/Niveles/Stage";
 vector<unique_ptr<Proyectil>> Juego::proyectiles = {};
 Juego::Juego() {
   p1 = new Jugador();

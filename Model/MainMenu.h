@@ -5,7 +5,7 @@
 #ifndef REVOLUTION_GAME_MAINMENU_H
 #define REVOLUTION_GAME_MAINMENU_H
 
-
+namespace Mdl{class Model;}
 class MainMenu {
   private:
     int looking;
@@ -30,6 +30,7 @@ class MainMenu {
     bool downKey;
     MainMenu();
     void actualizar();
+    friend class Mdl::Model;
 
 
 };

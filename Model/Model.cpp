@@ -1,10 +1,11 @@
 #include "Model.h"
 
 Mdl::Model::Model() {
-    myJuego = Juego();
-    myMenu = MainMenu();
+    myJuego = nullptr;
+    myMenu = new MainMenu();
 }
 void Mdl::Model::actualizar() {
-    myJuego.actualizar();
-    myMenu.actualizar();
+  if (myMenu->startJuego && myJuego == nullptr)
+    myJuego=new Juego();
+  myMenu->actualizar();
 }
