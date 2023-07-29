@@ -3,7 +3,7 @@
 //
 
 #include "Firegun.h"
-# include "Juego.h"
+#include "Juego.h"
 #include "Proyectil.h"
 #include "memory"
 

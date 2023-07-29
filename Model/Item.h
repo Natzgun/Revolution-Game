@@ -7,12 +7,15 @@
 #include "Entidad.h"
 #include "Proyectil.h"
 class Item: public Entidad{
-public:
+protected:
     int couldown;
     //velocidad=0;
     //acel=2;
     float rapi=0;
     Vector2d<float> facing;
+    bool stunMode;
+public:
+    Item();
     virtual void usar(Vector2d<float> dir, Vector2d<float> pos)=0;
 
     //v

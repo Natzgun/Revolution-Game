@@ -13,6 +13,9 @@ protected:
 public:
     Entidad();
     Entidad(float x, float y);
+    bool checkColision(Entidad* otro);
+    bool colisionX(Entidad* otro);
+    bool colisionY(Entidad* otro);
 
     const Vector2d<float> &getPosicion() const;
     void setPosicion(float x,float y);
