@@ -5,11 +5,14 @@
 namespace Ctlr {
 
   Controller::Controller() {
+    vista.setMediator(this);
+    modelo.setMediator(this);
   }
 
   void Controller::ejecutar() {
-    while (vista.isRunning()) {
-      while (vista.getVentanaPollEvent()) {
+    while (ventanaAbierta) {
+      vista.handleEvents();
+      /*while (vista.getVentanaPollEvent()) {
         switch (vista.getEvent().type) {
           // El 0 = Closed
           case 0:
@@ -17,11 +20,11 @@ namespace Ctlr {
             vista.getCloseWindow();
             break;
         }
-      }
-//      modelo.myJuego.p1->setArriba(vista.getJuego().j1->up);
-//      modelo.myJuego.p1->setAbajo(vista.getJuego().j1->down);
-//      modelo.myJuego.p1->setIzquierda(vista.getJuego().j1->left);
-//      modelo.myJuego.p1->setDerecha(vista.getJuego().j1->right);
+      }*/
+/*      modelo.myJuego.p1->setArriba(vista.getJuego().j1->up);
+      modelo.myJuego.p1->setAbajo(vista.getJuego().j1->down);
+      modelo.myJuego.p1->setIzquierda(vista.getJuego().j1->left);
+      modelo.myJuego.p1->setDerecha(vista.getJuego().j1->right);*/
       //enviar pos del mouse
       //enviar eventos rclic lclic al modelo
       toJuegoModel();
@@ -57,6 +60,17 @@ namespace Ctlr {
     sf::Vector2f posj1 = sf::Vector2f(modelo.myJuego.p1->getPos().x,modelo.myJuego.p1->getPos().y);
     sf::Vector2i dirj1 = vista.getMousePos();
     dirj1 -= vista.windowSize();
+  }
 
+  void Controller::reactonLclick() {
+    //modelo.reactonLclick();
+  }
+
+  void Controller::reactonRclick() {
+    //modelo.reactonRclick();
+  }
+
+  void Controller::reactonClose() {
+    ventanaAbierta = false;
   }
 }

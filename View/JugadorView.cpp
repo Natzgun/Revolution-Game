@@ -19,8 +19,8 @@ JugadorView::JugadorView(){
   animationT = new Animation(&quieto);
   animationP->getSprite().setOrigin(animationP->getSprite().getLocalBounds().width / 2, animationP->getSprite().getLocalBounds().height / 2);
   animationT->getSprite().setOrigin(animationT->getSprite().getLocalBounds().width / 3, animationT->getSprite().getLocalBounds().height / 2);
-  animationP->getSprite().setScale(2.0f, 2.0f);
-  animationT->getSprite().setScale(2.0f, 2.0f);
+/*  animationP->getSprite().setScale(2.0f, 2.0f);
+  animationT->getSprite().setScale(2.0f, 2.0f);*/
 }
 
 void JugadorView::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
@@ -85,7 +85,6 @@ void JugadorView::manejarEventos() {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
       lclick = true;
       animationT->setTetures(&disparando);
-
     }
     else if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
       rclick = true;

@@ -7,22 +7,28 @@
 #include "JugadorView.h"
 #include "JuegoView.h"
 #include "Menu.h"
+#include <memory>
 
+namespace Ctlr {
+  class Controller;
+}
 namespace Vw {
   class View {
   private:
     sf::RenderWindow window;
     sf::Event evento;
     JuegoView juego;
-    JugadorView* jugadorPrincipal;
     Menu* mainMenu;
+    std::shared_ptr<Ctlr::Controller> mediator;
   public:
     View();
+    void setMediator(Ctlr::Controller* mediator_);
     bool isRunning();
     // No se deben llamarse gets
     sf::Event& getEvent();
     sf::Vector2<int> windowSize();
     bool getVentanaPollEvent();
+    void handleEvents();
     void getCloseWindow();
     JuegoView &getJuego();
     void getDisplay();

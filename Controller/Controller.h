@@ -9,6 +9,7 @@
 namespace Ctlr {
   class Controller {
   private:
+    bool ventanaAbierta;
     Mdl::Model modelo;
     Vw::View vista;
   public:
@@ -16,6 +17,9 @@ namespace Ctlr {
     void ejecutar();
     void toJuegoModel();
     void toJuegoView();
+    void reactonLclick();
+    void reactonRclick();
+    void reactonClose();
   };
 };
 

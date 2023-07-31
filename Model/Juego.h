@@ -8,7 +8,7 @@
 
 class Juego {
 public:
-    Jugador* p1;
+    std::unique_ptr<Jugador> p1 = nullptr;
     Stage nivel;
     static vector<std::unique_ptr<Proyectil>> proyectiles;
     //Escenario(Enemigos, obstaculos, items);

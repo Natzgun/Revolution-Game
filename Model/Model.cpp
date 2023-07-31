@@ -1,8 +1,16 @@
 #include "Model.h"
+#include "../Controller/Controller.h"
 
-Mdl::Model::Model() {
+namespace Mdl{
+  Model::Model() {
     myJuego = Juego();
-}
-void Mdl::Model::actualizar() {
+  }
+  void Model::actualizar() {
     myJuego.actualizar();
-}
+  }
+
+  void Model::setMediator(Ctlr::Controller *mediator_) {
+    mediator = std::shared_ptr<Ctlr::Controller>(mediator_);
+  }
+};
+

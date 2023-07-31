@@ -1,4 +1,5 @@
 #include "View.h"
+#include "../Controller/Controller.h"
 
 namespace Vw {
 
@@ -6,7 +7,6 @@ namespace Vw {
     window.create(sf::VideoMode(1280, 720), "Ventana SFML");
     window.setFramerateLimit(60);
     //JugadorView::init();
-    this->jugadorPrincipal = new JugadorView();
     this->mainMenu = new Menu();
   }
   bool View::isRunning() {
@@ -20,13 +20,14 @@ namespace Vw {
   }
   /////asjfdnaklsjfnkajsfn
   void View::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
+    //handleEvents();
     juego.actualizar(pos_, dir_);
   }
   sf::Event& View::getEvent() {
       return evento;
   }
   bool View::getVentanaPollEvent() {
-      return window.pollEvent(getEvent());
+    return window.pollEvent(getEvent());
   }
   void View::getCloseWindow() {
     window.close();
@@ -78,4 +79,20 @@ namespace Vw {
     v.x = win.x/2; v.y = win.y/2;
     return v;
   }
-};
+
+  void View::setMediator(Ctlr::Controller* mediator_) {
+    mediator = std::shared_ptr<Ctlr::Controller>(mediator_);
+  }
+  void View::handleEvents() {
+    while (window.pollEvent(evento)) {
+      switch (evento.type) {
+        // El 0 = Closed
+        case 0:
+          std::cout << sf::Event::Closed << std::endl;
+          window.close();
+          mediator->reactonClose();
+          break;
+      }
+    }
+  }
+}
