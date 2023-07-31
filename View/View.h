@@ -16,6 +16,7 @@ namespace Vw {
     sf::Event evento;
     JuegoView juego;
     MenuView* mainMenu;
+//    bool isSelected;
     // JugadorView* jugadorPrincipal;
     // Menu* mainMenu;
   public:
@@ -23,6 +24,7 @@ namespace Vw {
     bool isRunning();
     // No se deben llamarse gets
     sf::Event& getEvent();
+    sf::RenderWindow& getWindow();
     bool getVentanaPollEvent();
     void getCloseWindow();
     JuegoView &getJuego();
@@ -39,6 +41,12 @@ namespace Vw {
 
     //void initMenuMusic();
     void drawMenuBG();
+
+    void selectButton(const sf::Vector2f &mousePosition);
+    bool getSelectedButton();
+    void setStateB(bool);
+    /*void setSelectionB(bool);
+    bool &getSelectionB();*/
     // Cargar el jugador
     //void drawJugador(int, int);
     // void updateJugador();

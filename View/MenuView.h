@@ -26,7 +26,7 @@ public:
   // Esto de aqui es para los botones
   std::array<sf::Texture,3> buttonTextures;
   std::array<sf::Sprite,3> buttons;
-  int selectedItem;
+  bool selectedItem;
 
   MenuView();
   void actualizar();
@@ -40,6 +40,10 @@ public:
   sf::Music &getMusic();
 
   void handleButtonClick(const sf::Vector2f& mousePosition);
+
+  // Maneja los eventos del boton
+  void setSelectionB(bool);
+  bool &getSelectionB();
 };
 
 

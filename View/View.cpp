@@ -21,8 +21,11 @@ namespace Vw {
     window.display();
   }
   void View::actualizar() {
-    //juego.actualizar();
-    mainMenu->actualizar();
+    if (!getSelectedButton()) {
+      mainMenu->actualizar();
+    } else {
+      juego.actualizar();
+    }
   }
   sf::Event& View::getEvent() {
       return evento;
@@ -58,6 +61,8 @@ namespace Vw {
     window.draw(mainMenu->getSprite());
     window.display();
   }
+
+
   /*void View::initMenuMusic() {
     mainMenu->getMusic();
   }*/
@@ -71,4 +76,22 @@ namespace Vw {
   JuegoView &View::getJuego() {
     return juego;
   }
+
+  void View::selectButton(const sf::Vector2f &mousePosition) {
+    mainMenu->handleButtonClick(mousePosition);
+  }
+
+  sf::RenderWindow &View::getWindow() {
+    return window;
+  }
+
+  bool View::getSelectedButton() {
+    return mainMenu->getSelectionB();
+  }
+
+  void View::setStateB(bool s) {
+    mainMenu->setSelectionB(s);
+  }
+
+
 };

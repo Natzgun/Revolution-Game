@@ -2,6 +2,7 @@
 // Created by natzgun on 25/07/23.
 //
 
+#include <iostream>
 #include "MenuView.h"
 
 std::vector<sf::Texture> MenuView::menuTexture = {};
@@ -24,6 +25,7 @@ MenuView::MenuView() {
   buttons[0].setPosition(140,100);
   buttons[1].setPosition(160,450);
   buttons[2].setPosition(160,550);
+  selectedItem = false;
 }
 
 void MenuView::actualizar() {
@@ -50,7 +52,15 @@ MenuView::~MenuView() {
 }
 
 void MenuView::handleButtonClick(const sf::Vector2f &mousePosition) {
-
+  if (buttons[1].getGlobalBounds().contains(mousePosition)) {
+    buttons[1].setScale(1.5,1.5);
+    std::cout << "Iniciar el juego...\n";
+    selectedItem = true;
+  }
+  else if (buttons[2].getGlobalBounds().contains(mousePosition)) {
+    buttons[2].setScale(1.5,1.5);
+    std::cout << "Salir del juego...\n";
+  }
 }
 
 void MenuView::init() {
@@ -75,4 +85,12 @@ void MenuView::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 
 sf::Music &MenuView::getMusic() {
   return music;
+}
+
+void MenuView::setSelectionB(bool s) {
+  selectedItem = s;
+}
+
+bool &MenuView::getSelectionB() {
+  return selectedItem;
 }

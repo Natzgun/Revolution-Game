@@ -14,12 +14,21 @@ namespace Ctlr {
       // std::cout << "Running" << std::endl;
       // vista.actualizarVista();
       //vista.getClear();
+      sf::Vector2f mousePosition;
+      bool b = true;
       while (vista.getVentanaPollEvent()) {
         switch (vista.getEvent().type) {
           // El 0 = Closed
           case 0:
             std::cout << sf::Event::Closed << std::endl;
             vista.getCloseWindow();
+            break;
+          case 9:
+            std::cout << "Esta entrando en mousepressed" << std::endl;
+            if (vista.getEvent().mouseButton.button == sf::Mouse::Left) {
+              mousePosition = sf::Vector2f(sf::Mouse::getPosition(vista.getWindow()));
+              vista.selectButton(mousePosition);
+            }
             break;
         }
       }
@@ -43,10 +52,18 @@ namespace Ctlr {
         //vista.drawEsfera(50, x, y);
         //std::cout << "Tecla D presionada" << std::endl;
       }
-      vista.drawMenuBG();
+
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+        vista.setStateB(false);
+      }
+
+      if(!vista.getSelectedButton()) {
+        vista.drawMenuBG();
+      } else {
+        vista.draw();
+      }
       vista.getJuego().j1->setPosicion(x,y);
       vista.actualizar();
-      //vista.draw();
     }
   }
 }
