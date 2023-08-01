@@ -51,6 +51,9 @@ namespace Vw {
   bool View::getEventTypeClose() {
     return sf::Event::Closed;
   }
+  bool View::getKeyboard_Escape() {
+    return sf::Keyboard::isKeyPressed(sf::Keyboard::Escape);
+  }
   /*void View::drawJugador(int x, int y) {
     jugadorPrincipal->setPosicion(x,y);
     jugadorPrincipal->updateA();

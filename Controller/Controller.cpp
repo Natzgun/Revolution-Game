@@ -23,9 +23,9 @@ namespace Ctlr {
             std::cout << sf::Event::Closed << std::endl;
             vista.getCloseWindow();
             break;
+          // El 9 = MoussePressed
           case 9:
-            std::cout << "Esta entrando en mousepressed" << std::endl;
-            if (vista.getEvent().mouseButton.button == sf::Mouse::Left) {
+            if (vista.getEvent().mouseButton.button == 0) {
               mousePosition = sf::Vector2f(sf::Mouse::getPosition(vista.getWindow()));
               vista.selectButton(mousePosition);
             }
@@ -53,7 +53,7 @@ namespace Ctlr {
         //std::cout << "Tecla D presionada" << std::endl;
       }
 
-      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+      if (vista.getKeyboard_Escape()) {
         vista.setStateB(false);
       }
 

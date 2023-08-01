@@ -38,6 +38,7 @@ namespace Vw {
     bool getKeyboard_A();
     bool getKeyboard_S();
     bool getKeyboard_D();
+    bool getKeyboard_Escape();
 
     //void initMenuMusic();
     void drawMenuBG();
