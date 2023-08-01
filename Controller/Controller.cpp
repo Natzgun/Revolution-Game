@@ -25,7 +25,7 @@ namespace Ctlr {
       vista.actualizar(sf::Vector2f(modelo.myJuego.p1->getPos().x,modelo.myJuego.p1->getPos().y),dir);
       //std::cout <<vista.getJuego().j1->up<<"-"<<vista.getJuego().j1->left<<"-"<<vista.getJuego().j1->down<<"-"<<vista.getJuego().j1->right<< std::endl;
       vista.draw();
-      vista.handleEvents();
+      vista.handleWindowEvents();
     }
   }
 

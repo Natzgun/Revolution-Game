@@ -55,7 +55,7 @@ namespace Vw {
   void View::setMediator(Ctlr::Controller* mediator_) {
     mediatorRef = mediator_;
   }
-  void View::handleEvents() {
+  void View::handleWindowEvents() {
     while (window.pollEvent(evento)) {
       if (evento.type == sf::Event::Closed) {
         window.close();
@@ -71,7 +71,6 @@ namespace Vw {
       }
     }
   }
-
   View::~View() {
   }
 }
