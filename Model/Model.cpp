@@ -14,5 +14,6 @@ namespace Mdl{
   }
 
   Model::~Model() {
+//    delete myJuego;
   }
 };

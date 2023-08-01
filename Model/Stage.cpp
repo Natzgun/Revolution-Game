@@ -63,6 +63,11 @@ void Stage::generarMatriz(string file) {
     }
 }
 
+void Stage::genEmptyLvl(){
+  //rows 18*3 = 48 (por 40)
+  //cols 32*3 = 96 (por 40)
+  
+}
 void Stage::imprimir() {
     for(int i=0;i< this->arrItems.size();i++){
         arrItems[i]->imprimir();

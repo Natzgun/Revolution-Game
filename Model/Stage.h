@@ -22,6 +22,7 @@ public:
   Stage(const string& matrizStage);
   void generarMatriz(string file);
   void actualizar();
+  void genEmptyLvl();
   void imprimir();
 };
 
