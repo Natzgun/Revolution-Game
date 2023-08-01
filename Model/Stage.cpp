@@ -26,7 +26,7 @@ void Stage::generarMatriz(string file) {
     if(archivo.is_open()){
         int matriz [rows][cols];
         cout<<"==================================================================="<<endl;
-        while(std::getline(archivo,linea)) {
+        while(std::getline(archivo,linea)&&c!=18) {
             cout<<"| ";
             for(int i = 0; i<32;i++){
                 if(primero) {// error primera linea con un espacio en blanco extra

@@ -3,7 +3,7 @@
 
 namespace Mdl{
   Model::Model() {
-    myJuego = Juego();
+//    myJuego = Juego();
   }
   void Model::actualizar() {
     myJuego.actualizar();
