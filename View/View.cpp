@@ -73,4 +73,8 @@ namespace Vw {
   }
   View::~View() {
   }
+
+  /*void View::handleJ1Events() {
+    juego->
+  }*/
 }

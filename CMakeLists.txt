@@ -30,12 +30,19 @@ set(CONTROLLER_SOURCES
         Controller/Invoker.cpp Controller/Invoker.h
         Controller/Command.cpp Controller/Command.h)
 
+set(UTIL_SOURCES
+        Util/Estados.h
+        Util/DataColections.h
+)
+
 # Agregar ejecutable
 add_executable(Revolution_Game
         "main.cpp"
         ${MODEL_SOURCES}
         ${VIEW_SOURCES}
-        ${CONTROLLER_SOURCES})
+        ${CONTROLLER_SOURCES}
+        ${UTIL_SOURCES}
+)
 
 # Esta era la manera antigua pero lo guardamos por siacaso
 # add_executable(Revolution_Game main.cpp Model/Model.cpp Model/Model.h View/View.cpp View/View.h Controller/Controller.cpp Controller/Controller.h)

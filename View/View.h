@@ -30,6 +30,7 @@ namespace Vw {
     sf::Event& getEvent();
     sf::Vector2<int> windowSize();
     void handleWindowEvents();
+    void handleJ1Events();
     JuegoView &getJuego();
     void actualizar(sf::Vector2f, sf::Vector2i);
     void draw();
