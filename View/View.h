@@ -6,7 +6,7 @@
 #include <iostream>
 #include "JugadorView.h"
 #include "JuegoView.h"
-#include "Menu.h"
+#include "MenuView.h"
 #include <memory>
 
 namespace Ctlr {
@@ -20,7 +20,7 @@ namespace Vw {
     sf::RenderWindow window;
     sf::Event evento;
     std::unique_ptr<JuegoView> juego;
-    std::unique_ptr<Menu> mainMenu;
+    MenuView* mainMenu;
     Ctlr::Controller* mediatorRef;
   public:
     View();
@@ -38,7 +38,12 @@ namespace Vw {
     sf::Vector2<int> getMousePos();
 
     void initMenuMusic();
+
     void drawMenuBG();
+    bool getKeyboard_Escape();
+    void selectButton(const sf::Vector2f &mousePosition);
+    bool getSelectedButton();
+    void setStateB(bool);
 
     // Cargar el jugador
     void drawJugador(int, int);
