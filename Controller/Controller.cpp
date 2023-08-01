@@ -24,7 +24,15 @@ namespace Ctlr {
       modelo.actualizar();
       vista.actualizar(sf::Vector2f(modelo.myJuego.p1->getPos().x,modelo.myJuego.p1->getPos().y),dir);
       //std::cout <<vista.getJuego().j1->up<<"-"<<vista.getJuego().j1->left<<"-"<<vista.getJuego().j1->down<<"-"<<vista.getJuego().j1->right<< std::endl;
-      vista.draw();
+      // Esto eh agreago para intercambiar en el menu
+      if (vista.getKeyboard_Escape()) {
+        vista.setStateB(false);
+      }
+      if(!vista.getSelectedButton()) {
+        vista.drawMenuBG();
+      } else {
+        vista.draw();
+      }
       vista.handleWindowEvents();
     }
   }
