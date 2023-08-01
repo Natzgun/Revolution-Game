@@ -10,11 +10,13 @@
 //#include <string>
 #include <vector>
 #include "Firegun.h"
+#include "Obstaculo.h"
 
 class Stage {
 private:
     static int rows,cols;
-    std::vector<unique_ptr<Item>> arrItems;
+    vector<unique_ptr<Item>> arrItems;
+    vector<unique_ptr<Obstaculo>>arrObstaculos;
   // vector de punteros crudos a enemigos
   //
 public:
@@ -23,6 +25,7 @@ public:
   void generarMatriz(string file);
   void actualizar();
   void genEmptyLvl();
+  void genEmptyCell();
   void imprimir();
 };
 

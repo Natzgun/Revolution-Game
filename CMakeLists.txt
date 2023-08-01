@@ -14,7 +14,7 @@ set(MODEL_SOURCES
         Model/Item.cpp Model/Item.h
         Model/Firegun.cpp Model/Firegun.h
         Model/Proyectil.cpp Model/Proyectil.h
-        Model/Stage.cpp Model/Stage.h Model/MainMenu.cpp Model/MainMenu.h)
+        Model/Stage.cpp Model/Stage.h Model/MainMenu.cpp Model/MainMenu.h Model/Obstaculo.cpp Model/Obstaculo.h)
 
 set(VIEW_SOURCES
         View/View.cpp View/View.h

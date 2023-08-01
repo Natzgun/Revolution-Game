@@ -61,13 +61,23 @@ void Stage::generarMatriz(string file) {
     else{
         std::cout<<"no se puede abrir el archivo"<<endl;
     }
+
+
 }
 
-void Stage::genEmptyLvl(){
-  //rows 18*3 = 48 (por 40)
-  //cols 32*3 = 96 (por 40)
-  
+void Stage::genEmptyLvl() {
+  //rows 18*3 = 48 (por 40) Y
+  //cols 32*3 = 96 (por 40) X
+  for (int i = 0; i < 4; i++) {
+    for (int j = 0; j < 4; j++) {
+      arrObstaculos.push_back(make_unique<Obstaculo>(96 * i, 48 * j, 96 - 2, 2));
+      arrObstaculos.push_back(make_unique<Obstaculo>(96 * i, 48 * j, 2, 48 - 2));
+    }
+  }
 }
+void Stage::genEmptyCell() {
+}
+
 void Stage::imprimir() {
     for(int i=0;i< this->arrItems.size();i++){
         arrItems[i]->imprimir();

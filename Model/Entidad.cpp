@@ -56,3 +56,46 @@ bool Entidad::colisionY(Entidad *otro) {
     }
     return false;
 }
+
+void Entidad::setTop(float newY) {
+  posicion.setY(newY);
+}
+
+void Entidad::setBottom(float newY) {
+  posicion.setY(newY - dimension.getY());
+}
+
+void Entidad::setLeft(float newX) {
+  posicion.setX(newX);
+}
+
+void Entidad::setRight(float newX) {
+  posicion.setX(newX - dimension.getX());
+}
+
+void Entidad::setCenter(Vector2d<float> newCord) {
+  posicion.setXY(newCord.getX() - (dimension.getX()/2) , newCord.getY() - (dimension.getY()/2));
+}
+
+float Entidad::getTop() {
+  return posicion.getY();
+}
+
+float Entidad::getBottom() {
+  return posicion.getY() + dimension.getY();
+}
+
+float Entidad::getLeft() {
+  return posicion.getX();
+}
+
+float Entidad::getRight() {
+  return posicion.getX() + dimension.getY();
+}
+
+Vector2d<float> Entidad::getCenter() {
+  Vector2d<float> newPos = posicion;
+  newPos.setX(newPos.getX() + (posicion.getX()/2));
+  newPos.setY(newPos.getY() + (posicion.getY()/2));
+  return newPos;
+}

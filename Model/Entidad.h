@@ -28,6 +28,19 @@ public:
 
     virtual void actualizar() = 0;
     virtual ~Entidad() = default;
+
+    void setTop(float);
+    void setBottom(float);
+    void setLeft(float);
+    void setRight(float);
+    void setCenter(Vector2d<float>);
+
+    float getTop();
+    float getBottom();
+    float getLeft();
+    float getRight();
+    Vector2d<float> getCenter();
+
 };
 
 #endif //REVOLUTION_GAME_ENTIDAD_H
