@@ -7,40 +7,41 @@
 #include "JugadorView.h"
 #include "JuegoView.h"
 #include "Menu.h"
+#include <memory>
+
+namespace Ctlr {
+  class Controller;
+}
 
 namespace Vw {
   class View {
   private:
+    bool fullscreen;
     sf::RenderWindow window;
     sf::Event evento;
-    JuegoView juego;
-    JugadorView* jugadorPrincipal;
-    Menu* mainMenu;
+    std::unique_ptr<JuegoView> juego;
+    std::unique_ptr<Menu> mainMenu;
+    Ctlr::Controller* mediatorRef;
   public:
     View();
-    bool isRunning();
+    ~View();
+    void setMediator(Ctlr::Controller* mediator_);
     // No se deben llamarse gets
     sf::Event& getEvent();
-    bool getVentanaPollEvent();
-    void getCloseWindow();
+    sf::Vector2<int> windowSize();
+    void handleEvents();
     JuegoView &getJuego();
-    void getDisplay();
-    void getClear();
-    void actualizar();
+    void actualizar(sf::Vector2f, sf::Vector2i);
     void draw();
-    bool getEventTypeClose();
     // Keyboard functions
-    bool getKeyboard_W();
-    bool getKeyboard_A();
-    bool getKeyboard_S();
-    bool getKeyboard_D();
+    sf::Vector2<int> getMousePos();
 
     void initMenuMusic();
     void drawMenuBG();
+
     // Cargar el jugador
     void drawJugador(int, int);
     // void updateJugador();
-
   };
 }
 

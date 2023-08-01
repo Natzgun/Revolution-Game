@@ -3,18 +3,25 @@
 
 // Archivo Controller.h
 #pragma once
-//#include <SFML/Window/Event.hpp>
 #include "../Model/Model.h"
 #include "../View/View.h"
 
 namespace Ctlr {
   class Controller {
   private:
+    bool ventanaAbierta;
     Mdl::Model modelo;
     Vw::View vista;
   public:
     Controller();
+    ~Controller() = default;
     void ejecutar();
+    void toJuegoModel();
+    void toJuegoView();
+
+    void reactonP1Lclick();
+    void reactonP1Rclick();
+    void reactonClose();
   };
 };
 

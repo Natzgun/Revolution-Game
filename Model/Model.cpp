@@ -1,11 +1,18 @@
 #include "Model.h"
+#include "../Controller/Controller.h"
 
-Mdl::Model::Model() {
-    myJuego = nullptr;
-    myMenu = new MainMenu();
-}
-void Mdl::Model::actualizar() {
-  if (myMenu->startJuego && myJuego == nullptr)
-    myJuego=new Juego();
-  myMenu->actualizar();
-}
+namespace Mdl{
+  Model::Model() {
+    myJuego = Juego();
+  }
+  void Model::actualizar() {
+    myJuego.actualizar();
+  }
+
+  void Model::setMediator(Ctlr::Controller *mediator_) {
+    mediatorRef = mediator_;
+  }
+
+  Model::~Model() {
+  }
+};

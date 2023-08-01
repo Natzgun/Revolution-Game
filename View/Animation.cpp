@@ -8,7 +8,7 @@ Animation::Animation(std::vector<sf::Texture>* _frames): frameTime(0.1f), clock(
   setTetures(_frames);
 }
 
-void Animation::animar() {
+/*bool Animation::animar() {
   if (clock.getElapsedTime().asSeconds() > frameTime)
   {
     // Cambiar al siguiente frame
@@ -16,8 +16,24 @@ void Animation::animar() {
     sprite.setTexture((*frames)[currentFrame]);
     clock.restart();
   }
+  return true;
+}*/
+bool Animation::animar() {
+  //retornara true cuando un ciclo de animacion se haya completado
+  bool completado = false;
+  if (clock.getElapsedTime().asSeconds() > frameTime)
+  {
+    // Cambiar al siguiente frame
+    currentFrame++;
+    if(currentFrame >= numFrames){
+      currentFrame = 0;
+      completado = true;
+    }
+    sprite.setTexture((*frames)[currentFrame]);
+    clock.restart();
+  }
+  return completado;
 }
-
 sf::Sprite &Animation::getSprite() {
   return sprite;
 }
@@ -43,4 +59,8 @@ sf::Texture Animation::cargarImagen(const std::string& path) {
   sf::Texture tx;
   tx.loadFromFile(path);
   return tx;
+}
+
+void Animation::setPos(sf::Sprite& sp, const float & x, const float & y) {
+  sp.setPosition(x,y);
 }

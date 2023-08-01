@@ -4,26 +4,26 @@
 // Archivo Model.h
 #pragma once
 #include "Juego.h"
-#include "MainMenu.h"
+#include <memory>
 
+namespace Ctlr {
+  class Controller;
+}
 namespace Mdl {
-    class Model {
-    private:
-      Juego *myJuego ;
-      MainMenu *myMenu;
-      string estado;
-    public:
+  class Model {
+  private:
+    Ctlr::Controller* mediatorRef;
+  public:
+    Juego myJuego;
+    /*Menu myMenu;*/
+    // Atributos y datos del modelo
 
-        // Atributos y datos del modelo
-
-        Model();
-        void actualizar();
-        ~Model(){
-          delete myJuego;
-          delete myMenu;
-        }
-        // Métodos y funciones relacionados con la lógica y los datos del modelo
-    };
+    Model();
+    ~Model();
+    void setMediator(Ctlr::Controller* mediator_);
+    void actualizar();
+    // Métodos y funciones relacionados con la lógica y los datos del modelo
+  };
 };
 
 #endif //MVC_ARCHITECTURE_SFML_MODEL_H
