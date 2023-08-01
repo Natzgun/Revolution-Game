@@ -16,7 +16,8 @@ class Stage {
 private:
     static int rows,cols;
     vector<unique_ptr<Item>> arrItems;
-    vector<unique_ptr<Obstaculo>>arrObstaculos;
+    vector<Entidad*>arrObstaculos;
+    vector<vector<bool>> itemsXObstaculos;
   // vector de punteros crudos a enemigos
   //
 public:
@@ -27,6 +28,11 @@ public:
   void genEmptyLvl();
   void genEmptyCell();
   void imprimir();
+  ~Stage(){
+    for(size_t i = 0 ; i < arrObstaculos.size() ; i++){
+      delete arrObstaculos[i];
+    }
+  }
 };
 
 

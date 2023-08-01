@@ -8,7 +8,7 @@
 
 #include "Entidad.h"
 
-class Obstaculo: Entidad {
+class Obstaculo: public Entidad {
 public:
   Obstaculo(float x, float y, float dimX , float dimY);
   void actualizar();

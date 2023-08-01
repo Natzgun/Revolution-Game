@@ -12,7 +12,8 @@ int Stage::rows = 18;//720
 int Stage::cols = 32;//1280
 Stage::Stage(const string& matrizStage) {
   generarMatriz(matrizStage);
-
+  genEmptyLvl();
+  itemsXObstaculos = vector<vector<bool>>(arrItems.size(),vector<bool>(arrObstaculos.size(),false));
 }
 
 void Stage::generarMatriz(string file) {
@@ -70,8 +71,8 @@ void Stage::genEmptyLvl() {
   //cols 32*3 = 96 (por 40) X
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
-      arrObstaculos.push_back(make_unique<Obstaculo>(96 * i, 48 * j, 96 - 2, 2));
-      arrObstaculos.push_back(make_unique<Obstaculo>(96 * i, 48 * j, 2, 48 - 2));
+      arrObstaculos.push_back(new Obstaculo(32 * i, 18 * j, 96 - 2, 2));
+      arrObstaculos.push_back(new Obstaculo(32 * i, 18 * j, 2, 48 - 2));
     }
   }
 }
@@ -86,7 +87,10 @@ void Stage::imprimir() {
 }
 
 void Stage::actualizar() {
-    for(int i=0;i< this->arrItems.size();i++){
+    for(size_t i=0;i< this->arrItems.size();i++){
         arrItems[i]->actualizar();
+        for (size_t j=0; j< this->arrObstaculos.size();j++){
+          itemsXObstaculos[i][j] = arrItems[i]->colisionX(arrObstaculos[j]);
+        }
     }
 }
