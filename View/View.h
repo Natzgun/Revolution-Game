@@ -21,10 +21,10 @@ namespace Vw {
     sf::Event evento;
     std::unique_ptr<JuegoView> juego;
     std::unique_ptr<Menu> mainMenu;
-    std::shared_ptr<Ctlr::Controller> mediator;
+    Ctlr::Controller* mediatorRef;
   public:
     View();
-    ~View()=default;
+    ~View();
     void setMediator(Ctlr::Controller* mediator_);
     // No se deben llamarse gets
     sf::Event& getEvent();

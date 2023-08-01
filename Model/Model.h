@@ -12,13 +12,14 @@ namespace Ctlr {
 namespace Mdl {
   class Model {
   private:
-    std::shared_ptr<Ctlr::Controller> mediator;
+    Ctlr::Controller* mediatorRef;
   public:
     Juego myJuego;
     /*Menu myMenu;*/
     // Atributos y datos del modelo
 
     Model();
+    ~Model();
     void setMediator(Ctlr::Controller* mediator_);
     void actualizar();
     // Métodos y funciones relacionados con la lógica y los datos del modelo

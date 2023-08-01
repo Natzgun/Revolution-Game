@@ -10,7 +10,10 @@ namespace Mdl{
   }
 
   void Model::setMediator(Ctlr::Controller *mediator_) {
-    mediator = std::shared_ptr<Ctlr::Controller>(mediator_);
+    mediatorRef = mediator_;
+  }
+
+  Model::~Model() {
   }
 };
 

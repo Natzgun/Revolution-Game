@@ -14,6 +14,7 @@ namespace Ctlr {
     Vw::View vista;
   public:
     Controller();
+    ~Controller() = default;
     void ejecutar();
     void toJuegoModel();
     void toJuegoView();

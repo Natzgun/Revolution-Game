@@ -12,10 +12,10 @@ namespace Ctlr {
 
   void Controller::ejecutar() {
     while (ventanaAbierta) {
-/*      modelo.myJuego.p1->setArriba(vista.getJuego().j1->up);
+      modelo.myJuego.p1->setArriba(vista.getJuego().j1->up);
       modelo.myJuego.p1->setAbajo(vista.getJuego().j1->down);
       modelo.myJuego.p1->setIzquierda(vista.getJuego().j1->left);
-      modelo.myJuego.p1->setDerecha(vista.getJuego().j1->right);*/
+      modelo.myJuego.p1->setDerecha(vista.getJuego().j1->right);
       //enviar pos del mouse
       //enviar eventos rclic lclic al modelo
       toJuegoModel();

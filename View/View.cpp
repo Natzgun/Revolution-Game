@@ -53,13 +53,13 @@ namespace Vw {
   }
 
   void View::setMediator(Ctlr::Controller* mediator_) {
-    mediator = std::shared_ptr<Ctlr::Controller>(mediator_);
+    mediatorRef = mediator_;
   }
   void View::handleEvents() {
     while (window.pollEvent(evento)) {
       if (evento.type == sf::Event::Closed) {
         window.close();
-        mediator->reactonClose();
+        mediatorRef->reactonClose();
       }
       else if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::F) {
         fullscreen = !fullscreen;
@@ -70,5 +70,8 @@ namespace Vw {
         }
       }
     }
+  }
+
+  View::~View() {
   }
 }
