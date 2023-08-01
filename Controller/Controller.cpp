@@ -5,22 +5,13 @@
 namespace Ctlr {
 
   Controller::Controller() {
+    ventanaAbierta = true;
     vista.setMediator(this);
     modelo.setMediator(this);
   }
 
   void Controller::ejecutar() {
     while (ventanaAbierta) {
-      vista.handleEvents();
-      /*while (vista.getVentanaPollEvent()) {
-        switch (vista.getEvent().type) {
-          // El 0 = Closed
-          case 0:
-            std::cout << sf::Event::Closed << std::endl;
-            vista.getCloseWindow();
-            break;
-        }
-      }*/
 /*      modelo.myJuego.p1->setArriba(vista.getJuego().j1->up);
       modelo.myJuego.p1->setAbajo(vista.getJuego().j1->down);
       modelo.myJuego.p1->setIzquierda(vista.getJuego().j1->left);
@@ -32,8 +23,9 @@ namespace Ctlr {
       dir -= vista.windowSize();
       modelo.actualizar();
       vista.actualizar(sf::Vector2f(modelo.myJuego.p1->getPos().x,modelo.myJuego.p1->getPos().y),dir);
-      std::cout <<vista.getJuego().j1->up<<"-"<<vista.getJuego().j1->left<<"-"<<vista.getJuego().j1->down<<"-"<<vista.getJuego().j1->right<< std::endl;
+      //std::cout <<vista.getJuego().j1->up<<"-"<<vista.getJuego().j1->left<<"-"<<vista.getJuego().j1->down<<"-"<<vista.getJuego().j1->right<< std::endl;
       vista.draw();
+      vista.handleEvents();
     }
   }
 
@@ -62,11 +54,11 @@ namespace Ctlr {
     dirj1 -= vista.windowSize();
   }
 
-  void Controller::reactonLclick() {
+  void Controller::reactonP1Lclick() {
     //modelo.reactonLclick();
   }
 
-  void Controller::reactonRclick() {
+  void Controller::reactonP1Rclick() {
     //modelo.reactonRclick();
   }
 

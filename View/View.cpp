@@ -4,48 +4,20 @@
 namespace Vw {
 
   View::View() {
-    window.create(sf::VideoMode(1280, 720), "Ventana SFML");
+    fullscreen = false;
+    //sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Revolution_Game", sf::Style::Fullscreen);
+    window.create(sf::VideoMode(1280, 720), "Revolution_Game");
     window.setFramerateLimit(60);
     //JugadorView::init();
-    this->mainMenu = new Menu();
+    juego = std::make_unique<JuegoView>();
+    mainMenu = std::make_unique<Menu>();
   }
-  bool View::isRunning() {
-    return window.isOpen();
-  }
-  void View::getClear() {
-    window.clear();
-  }
-  void View::getDisplay() {
-    window.display();
-  }
-  /////asjfdnaklsjfnkajsfn
   void View::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
     //handleEvents();
-    juego.actualizar(pos_, dir_);
+    juego->actualizar(pos_, dir_);
   }
   sf::Event& View::getEvent() {
       return evento;
-  }
-  bool View::getVentanaPollEvent() {
-    return window.pollEvent(getEvent());
-  }
-  void View::getCloseWindow() {
-    window.close();
-  }
-  bool View::getKeyboard_W() {
-    return sf::Keyboard::isKeyPressed(sf::Keyboard::W);
-  }
-  bool View::getKeyboard_A() {
-    return sf::Keyboard::isKeyPressed(sf::Keyboard::A);
-  }
-  bool View::getKeyboard_S() {
-    return sf::Keyboard::isKeyPressed(sf::Keyboard::S);
-  }
-  bool View::getKeyboard_D() {
-    return sf::Keyboard::isKeyPressed(sf::Keyboard::D);
-  }
-  bool View::getEventTypeClose() {
-    return sf::Event::Closed;
   }
   /*void View::drawJugador(int x, int y) {
     jugadorPrincipal->setPosicion(x,y);
@@ -61,12 +33,12 @@ namespace Vw {
 
   void View::draw() {
     window.clear();
-    window.draw(juego.getsprite());
+    window.draw(juego->getsprite());
     window.display();
   }
 
   JuegoView &View::getJuego() {
-    return juego;
+    return *juego;
   }
 
   sf::Vector2<int> View::getMousePos() {
@@ -85,13 +57,17 @@ namespace Vw {
   }
   void View::handleEvents() {
     while (window.pollEvent(evento)) {
-      switch (evento.type) {
-        // El 0 = Closed
-        case 0:
-          std::cout << sf::Event::Closed << std::endl;
-          window.close();
-          mediator->reactonClose();
-          break;
+      if (evento.type == sf::Event::Closed) {
+        window.close();
+        mediator->reactonClose();
+      }
+      else if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::F) {
+        fullscreen = !fullscreen;
+        if (fullscreen) {
+          window.create(sf::VideoMode::getDesktopMode(), "Revolution_Game", sf::Style::Fullscreen);
+        } else {
+          window.create(sf::VideoMode(1280, 720), "Revolution_Game", sf::Style::Default);
+        }
       }
     }
   }

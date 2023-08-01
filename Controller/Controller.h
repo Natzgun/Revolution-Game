@@ -17,8 +17,9 @@ namespace Ctlr {
     void ejecutar();
     void toJuegoModel();
     void toJuegoView();
-    void reactonLclick();
-    void reactonRclick();
+
+    void reactonP1Lclick();
+    void reactonP1Rclick();
     void reactonClose();
   };
 };

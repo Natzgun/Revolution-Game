@@ -7,11 +7,12 @@
 
 #include "JugadorView.h"
 #include "ProyectilV.h"
+#include <memory>
 
 class JuegoView {
 public:
-  JugadorView* j1;
-  std::vector<ProyectilV*> proyectiles;
+  std::unique_ptr<JugadorView> j1;
+  std::vector<std::unique_ptr<ProyectilV>> proyectiles;
   sf::RenderTexture targetTexture;
   sf::Sprite sprite;
   JuegoView();

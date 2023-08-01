@@ -7,7 +7,7 @@
 JuegoView::JuegoView() {
   //JugadorView::init();
   ProyectilV::init();
-  j1 = new JugadorView();
+  j1 = std::make_unique<JugadorView>();
   targetTexture.create(1280,720);
 }
 
@@ -24,8 +24,8 @@ void JuegoView::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
 }
 
 JuegoView::~JuegoView() {
-  delete j1;
+  /*delete j1;
   for (int i = 0; i < proyectiles.size(); i++) {
     delete proyectiles[i];
-  }
+  }*/
 }
