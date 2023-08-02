@@ -1,5 +1,6 @@
 #ifndef REVOLUTION_GAME_MENU_H
 #define REVOLUTION_GAME_MENU_H
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
