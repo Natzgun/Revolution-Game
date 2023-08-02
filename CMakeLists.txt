@@ -23,7 +23,11 @@ set(VIEW_SOURCES
         View/JugadorView.cpp View/JugadorView.h
         View/Menu.cpp View/Menu.h
         View/JuegoView.cpp View/JuegoView.h
-        View/ProyectilV.cpp View/ProyectilV.h View/MenuView.cpp View/MenuView.h)
+        View/ProyectilV.cpp View/ProyectilV.h View/MenuView.cpp View/MenuView.h
+        View/PersonajeView.cpp
+        View/PersonajeView.h
+        View/EstadoView.cpp
+        View/EstadoView.h)
 
 set(CONTROLLER_SOURCES
         Controller/Controller.cpp Controller/Controller.h

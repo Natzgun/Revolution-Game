@@ -5,7 +5,7 @@
 #include "JuegoView.h"
 
 JuegoView::JuegoView() {
-  //JugadorView::init();
+  PersonajeView::init();
   ProyectilV::init();
   j1 = std::make_unique<JugadorView>();
   targetTexture.create(1280,720);

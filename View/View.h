@@ -38,7 +38,6 @@ namespace Vw {
     sf::Vector2<int> getMousePos();
 
     void initMenuMusic();
-
     void drawMenuBG();
     bool getKeyboard_Escape();
     void selectButton(const sf::Vector2f &mousePosition);
@@ -46,7 +45,6 @@ namespace Vw {
     void setStateB(bool);
 
     // Cargar el jugador
-    void drawJugador(int, int);
     // void updateJugador();
   };
 }

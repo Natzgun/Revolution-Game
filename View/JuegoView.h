@@ -11,8 +11,8 @@
 
 class JuegoView {
 public:
-  std::unique_ptr<JugadorView> j1;
-  std::unique_ptr<JugadorView> j2;
+  std::unique_ptr<PersonajeView> j1;
+  std::unique_ptr<PersonajeView> j2;
   std::vector<std::unique_ptr<ProyectilV>> proyectiles;
   sf::RenderTexture targetTexture;
   sf::Sprite sprite;

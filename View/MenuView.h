@@ -1,7 +1,3 @@
-//
-// Created by natzgun on 25/07/23.
-//
-
 #ifndef REVOLUTION_GAME_MENUVIEW_H
 #define REVOLUTION_GAME_MENUVIEW_H
 

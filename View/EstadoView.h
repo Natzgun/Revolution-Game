@@ -1,0 +1,11 @@
+#ifndef REVOLUTION_GAME_ESTADOVIEW_H
+#define REVOLUTION_GAME_ESTADOVIEW_H
+
+
+class EstadoView {
+public:
+
+};
+
+
+#endif //REVOLUTION_GAME_ESTADOVIEW_H

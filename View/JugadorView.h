@@ -4,35 +4,21 @@
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
 #include <array>
+#include "PersonajeView.h"
 
 using std::string;
 
-class JugadorView: public sf::Drawable {
+class JugadorView: public PersonajeView {
 public:
-  bool up, down, right, left, lclick, rclick;
-  int estado;
-  float ang = 0.7f;
-  Animation *animationP;
-  Animation *animationT;
+  bool lclick, rclick;
 
-  static std::array<char,5> estados;
-  static std::vector<sf::Texture> quieto;
-  static std::vector<sf::Texture> moviendose;
-  static std::vector<sf::Texture> disparando;
-  static std::vector<sf::Texture> lanzando;
-  static std::vector<sf::Texture> piernas;
-  static std::vector<sf::Texture> recogiendo;
-
-  static void init();
   JugadorView();
-  void setPosicion(float, float) const;
-  void setDireccion(float, float) ;
-  void manejarEventos();
-  void animar();
-  void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-  void actualizar(sf::Vector2f, sf::Vector2i);
-  sf::Sprite &getSprite() const;
-  ~JugadorView();
+  void handleKeyEvents();
+  bool presionarLclick();
+  bool presionarRclick();
+  void animar() override;
+  void actualizar(sf::Vector2f, sf::Vector2i) override;
+  ~JugadorView() override = default;
 };
 
 #endif //REVOLUTION_GAME_JUGADORVIEW_H

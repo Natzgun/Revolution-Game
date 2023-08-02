@@ -7,11 +7,15 @@
 
 
 enum class PersonajeEstado {
-  quieto,
-  moviendose,
-  disparando,
-  lanzando,
-  recogiendo,
+  Quieto,
+  Moviendose,
+  Disparando,
+  Lanzando,
+  Recogiendo,
+
+  Desarmado,
+  Pistola,
+  Escopeta,
 };
 
 
