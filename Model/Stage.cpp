@@ -12,7 +12,8 @@ int Stage::rows = 18;//720
 int Stage::cols = 32;//1280
 Stage::Stage(const string& matrizStage) {
   generarMatriz(matrizStage);
-
+  genEmptyLvl();
+  itemsXObstaculos = vector<vector<bool>>(arrItems.size(),vector<bool>(arrObstaculos.size(),false));
 }
 
 void Stage::generarMatriz(string file) {
@@ -25,7 +26,7 @@ void Stage::generarMatriz(string file) {
     if(archivo.is_open()){
         int matriz [rows][cols];
         cout<<"==================================================================="<<endl;
-        while(std::getline(archivo,linea)) {
+        while(std::getline(archivo,linea)&&c!=18) {
             cout<<"| ";
             for(int i = 0; i<32;i++){
                 if(primero) {// error primera linea con un espacio en blanco extra
@@ -61,6 +62,21 @@ void Stage::generarMatriz(string file) {
     else{
         std::cout<<"no se puede abrir el archivo"<<endl;
     }
+
+
+}
+
+void Stage::genEmptyLvl() {
+  //rows 18*3 = 48 (por 40) Y
+  //cols 32*3 = 96 (por 40) X
+  for (int i = 0; i < 4; i++) {
+    for (int j = 0; j < 4; j++) {
+      arrObstaculos.push_back(new Obstaculo(32 * i, 18 * j, 96 - 2, 2));
+      arrObstaculos.push_back(new Obstaculo(32 * i, 18 * j, 2, 48 - 2));
+    }
+  }
+}
+void Stage::genEmptyCell() {
 }
 
 void Stage::imprimir() {
@@ -71,7 +87,10 @@ void Stage::imprimir() {
 }
 
 void Stage::actualizar() {
-    for(int i=0;i< this->arrItems.size();i++){
+    for(size_t i=0;i< this->arrItems.size();i++){
         arrItems[i]->actualizar();
+        for (size_t j=0; j< this->arrObstaculos.size();j++){
+          itemsXObstaculos[i][j] = arrItems[i]->colisionX(arrObstaculos[j]);
+        }
     }
 }

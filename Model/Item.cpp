@@ -4,13 +4,20 @@
 
 #include "Item.h"
 #include <iostream>
-
+Item::Item():Entidad(){
+    couldown = 0;
+    rapi = 0;
+    facing = Vector2d<float>(0,0);
+    stunMode = 0;
+}
 void Item::actualizar() {
     if(couldown > 0){couldown--;}
     if(rapi> 0){
         posicion = posicion + facing*rapi;
         //posicion.setY(posicion.getY()+facing.getY()*rapi);
         rapi--;
+        if (rapi > 10)
+            stunMode = true;
     }
 }
 
