@@ -14,7 +14,6 @@ private:
     bool disparando, lclick;
     Vector2d<float> facing;
     //bool armaDisponible;
-    unique_ptr<Item> arma;
     int puntos;
     char estado; // quieto moviendose disparando
 public:
