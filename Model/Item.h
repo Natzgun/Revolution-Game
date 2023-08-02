@@ -6,6 +6,7 @@
 #define REVOLUTION_GAME_ITEM_H
 #include "Entidad.h"
 #include "Proyectil.h"
+class Stage;
 class Item: public Entidad{
 protected:
     int couldown;
@@ -15,6 +16,7 @@ protected:
     Vector2d<float> facing;
     bool stunMode;
 public:
+    friend class Stage;
     Item();
     virtual void usar(Vector2d<float> dir, Vector2d<float> pos)=0;
 

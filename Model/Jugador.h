@@ -7,16 +7,19 @@
 #include "Personaje.h"
 #include <iostream>
 #include <memory>
+#include "../Util/Estados.h"
 
 class Jugador: protected Personaje {
 private:
     bool arriba, abajo, izquierda, derecha;
-    bool disparando, lclick;
+    bool disparando, recogiendo, lanzando;
     Vector2d<float> facing;
     //bool armaDisponible;
-    unique_ptr<Item> arma;
     int puntos;
-    char estado; // quieto moviendose disparando
+    //char estado; // quieto moviendose disparando
+    PersonajeEstado estado;
+    PersonajeEstado estadoArma ;
+
 public:
     Jugador();
     Jugador(float x, float y);
@@ -31,6 +34,10 @@ public:
     int getPuntos() const;
     void setPuntos(int puntos);
     Vector2d<float> getPos();
+    PersonajeEstado getEstado();
+    PersonajeEstado getEstadoArma();
+
+    void setFacing(Vector2d<float>);
 
     void actualizar() override;
     //void cogerArma(&Juego); // incompleto

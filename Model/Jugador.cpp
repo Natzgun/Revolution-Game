@@ -49,31 +49,46 @@ void Jugador::setDerecha(bool derecha) {
 void Jugador::actualizar() {
     if(arriba){
         posicion.setY(posicion.getY() - 5);
-        facing.setXY(0,1);
+//        facing.setXY(0,1);
     }
     if(abajo){
         posicion.setY(posicion.getY() + 5);
-        facing.setXY(0,-1);
+//        facing.setXY(0,-1);
     }
     if(izquierda){
         posicion.setX(posicion.getX() - 5);
-        facing.setXY(-1,0);
+//        facing.setXY(-1,0);
     }
     if(derecha){
         posicion.setX(posicion.getX() + 5);
-        facing.setXY(1,0);
+//        facing.setXY(1,0);
     }
 
-    //  Actualizar estado:
+    //  Actualizar estado jugador:
 
     if (arma!=nullptr && disparando/*jugador tiene arma y presiona disparar*/){
-      estado = 'd';
+      estado = PersonajeEstado::Disparando;
       arma->usar(facing,posicion);
     }
+    else if(recogiendo) {
+      estado = PersonajeEstado::Recogiendo;
+    }
     else if(!arriba && !abajo && !izquierda && !derecha)
-      estado = 'q';
+      estado = PersonajeEstado::Quieto;
+    else if(lanzando) {
+      arma->lanzar(facing, posicion);
+      estado = PersonajeEstado::Lanzando;
+    }
     else
-      estado = 'm';
+      estado = PersonajeEstado::Moviendose;
+
+
+    // estado de arma
+
+    if(arma == nullptr)
+      estadoArma = PersonajeEstado::Desarmado;
+    else
+      estadoArma = PersonajeEstado::Pistola;
 
 }
 
@@ -89,9 +104,14 @@ Vector2d<float> Jugador::getPos() {
   return posicion;
 }
 
-void Jugador::disparar() {
-  if (arma!=nullptr){
-    estado = 'd';
-    arma->usar(facing,posicion);
-  }
+PersonajeEstado Jugador::getEstado() {
+  return estado;
+}
+
+PersonajeEstado Jugador::getEstadoArma() {
+  return estadoArma;
+}
+
+void Jugador::setFacing(Vector2d<float>a) {
+  facing = a;
 }

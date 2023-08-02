@@ -90,6 +90,15 @@ void Stage::actualizar() {
     for(size_t i=0;i< this->arrItems.size();i++){
         arrItems[i]->actualizar();
         for (size_t j=0; j< this->arrObstaculos.size();j++){
+          // condicion para rebote
+          if(itemsXObstaculos[i][j]&&arrItems[i]->colisionY(arrObstaculos[j])){
+            arrItems[i]->facing.setX(arrItems[i]->facing.getX()*-1);
+          }
+          else if(arrItems[i]->checkColision(arrObstaculos[j])){
+            arrItems[i]->facing.setY(arrItems[i]->facing.getY()*-1);
+          }
+
+          //actualizar matriz bool de colision en X
           itemsXObstaculos[i][j] = arrItems[i]->colisionX(arrObstaculos[j]);
         }
     }
