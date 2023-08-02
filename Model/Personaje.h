@@ -19,7 +19,7 @@ public:
     Personaje(int x, int y) : Entidad(x, y){
     };
     virtual void actualizar()=0;
-    virtual ~Personaje()override = default;
+    virtual ~Personaje()override{delete arma;};
 };
 //Vector2d<int> Personaje::dimension = Vector2d(5,10);
 
