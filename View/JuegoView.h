@@ -7,6 +7,7 @@
 
 #include "JugadorView.h"
 #include "ProyectilV.h"
+#include "Escenario.h"
 #include <memory>
 
 class JuegoView {
@@ -15,6 +16,9 @@ public:
   std::vector<std::unique_ptr<ProyectilV>> proyectiles;
   sf::RenderTexture targetTexture;
   sf::Sprite sprite;
+
+  Escenario* e1;
+  //sf::FloatRect rectanguloMovimiento;
   JuegoView();
   void actualizar(sf::Vector2f pos_, sf::Vector2i dir_);
   const sf::Sprite & getsprite() const;
