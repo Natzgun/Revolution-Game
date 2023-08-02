@@ -7,7 +7,7 @@
 Escenario::Escenario() {
   setBackground();
   camara.setSize(sf::Vector2f(1280.0f, 720.0f)); // Tamaño de la ventana
-  //camara.setCenter(camara.getSize() / 2.0f);
+   camara.setCenter(camara.getSize() / 2.0f);
 }
 
 void Escenario::setBackground() {

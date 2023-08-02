@@ -10,6 +10,8 @@
 #include <array>
 //#include "Menu.h"
 #include "Animation.h"
+#include "States/GameState.h"
+
 
 class MenuView: public sf::Drawable {
 public:

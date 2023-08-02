@@ -11,6 +11,7 @@ namespace Vw {
     //JugadorView::init();
     juego = std::make_unique<JuegoView>();
     MenuView::init();
+    //this->currentState = std::make_unique<MenuView>();
     this->mainMenu = new MenuView();
   }
   void View::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
@@ -30,6 +31,7 @@ namespace Vw {
     window.draw(*jugadorPrincipal);
   }*/
   void View::drawMenuBG() {
+    juego->getMusic().stop();
     window.clear();
     window.draw(mainMenu->getSprite());
     window.display();
@@ -78,9 +80,11 @@ namespace Vw {
         }
       }
       else if (evento.type == sf::Event::MouseButtonPressed) {
-        if (evento.mouseButton.button == 0) {
+        if (evento.mouseButton.button == 0 && getSelectedButton() == false) {
           mousePosition = sf::Vector2f(sf::Mouse::getPosition(window));
           selectButton(mousePosition);
+          mainMenu->getMusic().stop();
+          juego->getMusic().play();
         }
       }
     }

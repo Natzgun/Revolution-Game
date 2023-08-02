@@ -22,6 +22,7 @@ namespace Vw {
     std::unique_ptr<JuegoView> juego;
     MenuView* mainMenu;
     Ctlr::Controller* mediatorRef;
+    //std::unique_ptr<GameState> currentState;
   public:
     View();
     ~View();

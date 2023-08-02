@@ -7,6 +7,7 @@
 JuegoView::JuegoView() {
   //JugadorView::init();
   ProyectilV::init();
+  initMusic();
   j1 = std::make_unique<JugadorView>();
   e1 = new Escenario();
   targetTexture.create(1280,720);
@@ -39,4 +40,16 @@ JuegoView::~JuegoView() {
   for (int i = 0; i < proyectiles.size(); i++) {
     delete proyectiles[i];
   }*/
+}
+
+sf::Music &JuegoView::getMusic() {
+  return musicaGame;
+}
+
+void JuegoView::initMusic() {
+  if (!musicaGame.openFromFile("../Resources/Gamemusic.ogg"))
+    throw std::runtime_error("No se pudo cargar la musica");
+  musicaGame.setVolume(100);
+  musicaGame.setVolume(musicaGame.getVolume() / 2);
+  musicaGame.stop();
 }

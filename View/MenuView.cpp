@@ -88,6 +88,7 @@ sf::Music &MenuView::getMusic() {
 }
 
 void MenuView::setSelectionB(bool s) {
+  music.play();
   selectedItem = s;
 }
 
