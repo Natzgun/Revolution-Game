@@ -7,17 +7,17 @@ string Juego::pathNivel = "../Resources/Niveles/stage1.csv";
 vector<unique_ptr<Proyectil>> Juego::proyectiles = {};
 Juego::Juego() {
   p1 = make_unique<Jugador>(500,500);
-  nivel = Stage(pathNivel);
+  nivel = new Stage(pathNivel);
 }
 Juego::Juego(string path) {
   p1 = make_unique<Jugador>();
-  nivel = Stage(path);
+  nivel = new Stage(path);
 }
 void Juego::actualizar() {
   p1->actualizar();
   for(size_t i = 0; i<Juego::proyectiles.size();i++){
     proyectiles[i]->actualizar();
   }
-  nivel.actualizar();
+  nivel->actualizar();
 }
 

@@ -9,7 +9,7 @@
 class Juego {
 public:
     std::unique_ptr<Jugador> p1 = nullptr;
-    Stage nivel;
+    Stage *nivel;
     static string pathNivel;
     static vector<std::unique_ptr<Proyectil>> proyectiles;
     //Escenario(Enemigos, obstaculos, items);
@@ -18,6 +18,7 @@ public:
     Juego();
     Juego(string);
     void actualizar();
+    ~Juego(){delete nivel;}
 
     //Verificar colisiones();
     //if(item.vel == 0) es intangible y podra ser recogido por algun personaje
