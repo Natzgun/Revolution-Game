@@ -30,12 +30,12 @@ namespace Vw {
     sf::Event& getEvent();
     sf::Vector2<int> windowSize();
     void handleWindowEvents();
-    void handleJ1Events();
+    void handleJuegoEvents();
     JuegoView &getJuego();
-    void actualizar(sf::Vector2f, sf::Vector2i);
+    void actualizar();
     void draw();
     // Keyboard functions
-    sf::Vector2<int> getMousePos();
+    Vector2d<float> getMousePosCenter();
 
     void initMenuMusic();
     void drawMenuBG();

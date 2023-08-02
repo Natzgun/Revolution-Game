@@ -13,12 +13,12 @@ namespace Vw {
     MenuView::init();
     this->mainMenu = new MenuView();
   }
-  void View::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
+  void View::actualizar() {
     //handleEvents();
     if (!getSelectedButton()) {
       mainMenu->actualizar();
     } else {
-      juego->actualizar(pos_, dir_);
+      juego->actualizar();
     }
   }
   sf::Event& View::getEvent() {
@@ -48,8 +48,11 @@ namespace Vw {
     return *juego;
   }
 
-  sf::Vector2<int> View::getMousePos() {
-    return sf::Mouse::getPosition(window);
+  Vector2d<float> View::getMousePosCenter() {
+    float xx = sf::Mouse::getPosition(window).x - (window.getSize().x/2.0);
+    float yy = sf::Mouse::getPosition(window).y - (window.getSize().y/2.0);
+    Vector2d<float> mousePos_(xx,yy);
+    return mousePos_;
   }
 
   sf::Vector2<int> View::windowSize(){
@@ -105,6 +108,12 @@ namespace Vw {
 
   View::~View() {
     delete mainMenu;
+  }
+
+  void View::handleJuegoEvents() {
+    juego->handleJuegoEvents();
+    if(juego->j1_Lclick()){mediatorRef->reactonP1Lclick();}
+    if(juego->j1_Rclick()){mediatorRef->reactonP1Rclick();}
   }
 
   /*void View::handleJ1Events() {

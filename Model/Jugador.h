@@ -26,6 +26,7 @@ public:
     void setIzquierda(bool izquierda);
     void setDerecha(bool derecha);
     void setDisparando(bool);
+    void disparar();
 
     int getPuntos() const;
     void setPuntos(int puntos);

@@ -88,3 +88,10 @@ void Jugador::setDisparando(bool disparando) {
 Vector2d<float> Jugador::getPos() {
   return posicion;
 }
+
+void Jugador::disparar() {
+  if (arma!=nullptr){
+    estado = 'd';
+    arma->usar(facing,posicion);
+  }
+}

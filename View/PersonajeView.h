@@ -29,8 +29,7 @@ public:
   void setDireccion(Vector2d<float> movimiento, Vector2d<float> mirada) const;
   virtual void animar();
   void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-  virtual void actualizar(sf::Vector2f, sf::Vector2i);
-  sf::Sprite &getSprite() const;
+  virtual void actualizar();
   virtual ~PersonajeView();
 };
 

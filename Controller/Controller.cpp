@@ -12,24 +12,15 @@ namespace Ctlr {
 
   void Controller::ejecutar() {
     while (ventanaAbierta) {
-      /*modelo.myJuego.p1->setArriba(vista.getJuego().j1->up);
-      modelo.myJuego.p1->setAbajo(vista.getJuego().j1->down);
-      modelo.myJuego.p1->setIzquierda(vista.getJuego().j1->left);
-      modelo.myJuego.p1->setDerecha(vista.getJuego().j1->right);*/
-      //enviar pos del mouse
-      //enviar eventos rclic lclic al modelo
-
       //Capturar eventos propios del estado menu o juego
-      sf::Vector2i dir = vista.getMousePos();
-      dir -= vista.windowSize();
+      vista.handleJuegoEvents();
 
       toJuegoModel();
       modelo.actualizar();
+      toJuegoView();
       //modeltoView
-      vista.actualizar(sf::Vector2f(modelo.myJuego.p1->getPos().x,modelo.myJuego.p1->getPos().y),dir);
+      vista.actualizar();
 
-
-      //Unificar eventos que siempre se capturan
       // Esto eh agreago para intercambiar en el menu
       if (vista.getKeyboard_Escape()) {
         vista.setStateB(false);
@@ -49,24 +40,15 @@ namespace Ctlr {
     modelo.myJuego.p1->setAbajo(vista.getJuego().j1->down);
     modelo.myJuego.p1->setIzquierda(vista.getJuego().j1->left);
     modelo.myJuego.p1->setDerecha(vista.getJuego().j1->right);
-    /*if(!(vista.getJuego().j1->lclick || vista.getJuego().j1->rclick)) {
-      if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        vista.getJuego().j1->lclick = true;
-        //animationT->setTetures(&disparando);
-        //modelo.myJuego.p1->setLclick(true);
-      }
-      else if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-        vista.getJuego().j1->rclick = true;
-        //animationT->setTetures(&lanzando);
-        //modelo.myJuego.p1->setRclick(true);
-      }
-    }*/
+    //modelo.j1.mira
   }
 
   void Controller::toJuegoView() {
-    sf::Vector2f posj1 = sf::Vector2f(modelo.myJuego.p1->getPos().x,modelo.myJuego.p1->getPos().y);
-    sf::Vector2i dirj1 = vista.getMousePos();
-    dirj1 -= vista.windowSize();
+    vista.getJuego().j1->setPosicion(modelo.myJuego.p1->getPos());
+    vista.getJuego().j1->setDireccion(vista.getJuego().j1->moveDir,vista.getMousePosCenter());
+    /*for(auto&& i: modelo.myJuego.proyectiles){
+      cout
+    }*/
   }
 
   void Controller::reactonP1Lclick() {

@@ -15,8 +15,8 @@ const sf::Sprite &JuegoView::getsprite() const {
   return sprite;
 }
 
-void JuegoView::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
-  j1->actualizar(pos_, dir_);
+void JuegoView::actualizar() {
+  j1->actualizar();
   targetTexture.clear();
   targetTexture.draw(*j1);
   targetTexture.display();
@@ -28,4 +28,16 @@ JuegoView::~JuegoView() {
   for (int i = 0; i < proyectiles.size(); i++) {
     delete proyectiles[i];
   }*/
+}
+
+void JuegoView::handleJuegoEvents() {
+  j1->handleMoveEvents();
+}
+
+bool JuegoView::j1_Lclick() {
+  return j1->presionarLclick();
+}
+
+bool JuegoView::j1_Rclick() {
+  return j1->presionarRclick();
 }

@@ -21,17 +21,13 @@ PersonajeView::PersonajeView(){
   animationT->getSprite().setOrigin(animationT->getSprite().getLocalBounds().width / 3, animationT->getSprite().getLocalBounds().height / 2);
 }
 
-void PersonajeView::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
+void PersonajeView::actualizar() {
   animar();
 }
 
 void PersonajeView::animar(){
   animationP->animar();
   animationT->animar();
-}
-
-sf::Sprite &PersonajeView::getSprite() const {
-  return this->animationP->getSprite();
 }
 
 void PersonajeView::draw(sf::RenderTarget &target, sf::RenderStates states) const {

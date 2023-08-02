@@ -16,4 +16,8 @@ namespace Mdl{
   Model::~Model() {
 //    delete myJuego;
   }
+
+  void Model::reactonLclick() {
+    //myJuego.p1.
+  }
 };

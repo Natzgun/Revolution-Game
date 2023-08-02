@@ -22,6 +22,8 @@ namespace Mdl {
     ~Model();
     void setMediator(Ctlr::Controller* mediator_);
     void actualizar();
+    void reactonLclick();
+    void reactonRclick();
     // Métodos y funciones relacionados con la lógica y los datos del modelo
   };
 };

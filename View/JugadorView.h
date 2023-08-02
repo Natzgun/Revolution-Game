@@ -11,13 +11,14 @@ using std::string;
 class JugadorView: public PersonajeView {
 public:
   bool lclick, rclick;
+  Vector2d<float> moveDir;
 
   JugadorView();
-  void handleKeyEvents();
+  void handleMoveEvents();
   bool presionarLclick();
   bool presionarRclick();
   void animar() override;
-  void actualizar(sf::Vector2f, sf::Vector2i) override;
+  void actualizar() override;
   ~JugadorView() override = default;
 };
 
