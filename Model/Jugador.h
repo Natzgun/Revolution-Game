@@ -9,7 +9,7 @@
 #include <memory>
 #include "../Util/Estados.h"
 
-class Jugador: protected Personaje {
+class Jugador: public Personaje {
 private:
     bool arriba, abajo, izquierda, derecha;
     bool disparando, recogiendo, lanzando;
@@ -17,8 +17,6 @@ private:
     //bool armaDisponible;
     int puntos;
     //char estado; // quieto moviendose disparando
-    PersonajeEstado estado;
-    PersonajeEstado estadoArma ;
 
 public:
     Jugador();
@@ -30,6 +28,7 @@ public:
     void setDerecha(bool derecha);
     void setDisparando(bool);
     void disparar();
+    void lanzar();
 
     int getPuntos() const;
     void setPuntos(int puntos);

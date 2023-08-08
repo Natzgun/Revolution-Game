@@ -17,8 +17,8 @@ void JugadorView::actualizar() {
 void JugadorView::animar(){
   animationP->animar();
   if(animationT->animar()){
-    if(lclick){lclick = false;}
-    else if(rclick){rclick = false;}
+    if(lclick){lclick = false; estado = PersonajeEstado::Quieto;}
+    else if(rclick){rclick = false; estado = PersonajeEstado::Quieto;}
     animationT->setTetures(&quieto);
   }
 }
@@ -54,6 +54,7 @@ bool JugadorView::presionarLclick() {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
       lclick = true;
       animationT->setTetures(&disparando);
+      estado = PersonajeEstado::Disparando;
       return true;
     }
   }
@@ -65,6 +66,7 @@ bool JugadorView::presionarRclick() {
     if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
       rclick = true;
       animationT->setTetures(&lanzando);
+      estado = PersonajeEstado::Lanzando;
       return true;
     }
   }

@@ -5,6 +5,7 @@
 #ifndef REVOLUTION_GAME_ESTADOS_H
 #define REVOLUTION_GAME_ESTADOS_H
 
+#include <string>
 
 enum class PersonajeEstado {
   Quieto,

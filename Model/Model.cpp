@@ -18,6 +18,10 @@ namespace Mdl{
   }
 
   void Model::reactonLclick() {
-    //myJuego.p1.
+    myJuego.p1->disparar();
+  }
+
+  void Model::reactonRclick() {
+    myJuego.p1->lanzar();
   }
 };

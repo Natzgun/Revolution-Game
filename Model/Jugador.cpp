@@ -4,6 +4,7 @@
 
 #include "Jugador.h"
 #include "Juego.h"
+#include <string>
 
 Jugador::Jugador() {
     arriba = false;
@@ -66,7 +67,7 @@ void Jugador::actualizar() {
 
     //  Actualizar estado jugador:
 
-    if (arma!=nullptr && disparando/*jugador tiene arma y presiona disparar*/){
+    /*if (arma!=nullptr && disparando){
       estado = PersonajeEstado::Disparando;
       arma->usar(facing,posicion);
     }
@@ -80,7 +81,7 @@ void Jugador::actualizar() {
       estado = PersonajeEstado::Lanzando;
     }
     else
-      estado = PersonajeEstado::Moviendose;
+      estado = PersonajeEstado::Moviendose;*/
 
 
     // estado de arma
@@ -89,7 +90,6 @@ void Jugador::actualizar() {
       estadoArma = PersonajeEstado::Desarmado;
     else
       estadoArma = PersonajeEstado::Pistola;
-
 }
 
 void Jugador::imprimir() {
@@ -114,4 +114,32 @@ PersonajeEstado Jugador::getEstadoArma() {
 
 void Jugador::setFacing(Vector2d<float>a) {
   facing = a;
+}
+
+void Jugador::disparar() {
+  string asd;
+  switch (estado) {
+    case PersonajeEstado::Quieto: asd= "Quieto";
+    case PersonajeEstado::Moviendose: asd= "Moviendose";
+    case PersonajeEstado::Disparando: asd= "Disparando";
+    case PersonajeEstado::Lanzando: asd= "Lanzando";
+    case PersonajeEstado::Recogiendo: asd= "Recogiendo";
+
+    case PersonajeEstado::Desarmado: asd= "Disparando";
+    case PersonajeEstado::Pistola: asd= "Quieto";
+    case PersonajeEstado::Escopeta: asd= "Moviendose";
+  }
+
+  if (arma != nullptr && estado != PersonajeEstado::Quieto){
+    std::cout<<asd<<"--"<<(arma != nullptr)<<std::endl;
+    estado = PersonajeEstado::Disparando;
+    arma->usar(facing,posicion);
+  }
+}
+
+void Jugador::lanzar() {
+  if (arma!=nullptr && estado != PersonajeEstado::Lanzando){
+    estado = PersonajeEstado::Lanzando;
+    arma->lanzar(facing, posicion);
+  }
 }

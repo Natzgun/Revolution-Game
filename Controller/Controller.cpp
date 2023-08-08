@@ -40,23 +40,25 @@ namespace Ctlr {
     modelo.myJuego.p1->setAbajo(vista.getJuego().j1->down);
     modelo.myJuego.p1->setIzquierda(vista.getJuego().j1->left);
     modelo.myJuego.p1->setDerecha(vista.getJuego().j1->right);
-    //modelo.j1.mira
+    modelo.myJuego.p1->setFacing(vista.getMousePosCenter());
+    modelo.myJuego.p1->estado = vista.getJuego().j1->estado;
   }
 
   void Controller::toJuegoView() {
     vista.getJuego().j1->setPosicion(modelo.myJuego.p1->getPos());
     vista.getJuego().j1->setDireccion(vista.getJuego().j1->moveDir,vista.getMousePosCenter());
     /*for(auto&& i: modelo.myJuego.proyectiles){
-      cout
-    }*/
+      std::cout << i->getPosicion().x <<"_"<<i->getPosicion().y<<"  ";
+    }
+    std::cout<<std::endl;*/
   }
 
   void Controller::reactonP1Lclick() {
-    //modelo.reactonLclick();
+    modelo.reactonLclick();
   }
 
   void Controller::reactonP1Rclick() {
-    //modelo.reactonRclick();
+    modelo.reactonRclick();
   }
 
   void Controller::reactonClose() {

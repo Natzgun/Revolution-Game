@@ -5,6 +5,7 @@
 #include "Jugador.h"
 #include "Stage.h"
 #include "memory"
+#include <iostream>
 
 class Juego {
 public:

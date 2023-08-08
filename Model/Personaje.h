@@ -8,15 +8,18 @@
 #include <memory>
 #include "Entidad.h"
 #include "Item.h"
+#include "../Util/Estados.h"
 
-class Personaje : protected Entidad{
+class Personaje : public Entidad{
 protected:
     //static Vector2d<int> dimension;
     unsigned int vida;
     unsigned int rapidez;
     Vector2d<int> velocidad;
-    std::unique_ptr<Item> arma;
 public:
+  PersonajeEstado estado;
+  PersonajeEstado estadoArma ;
+  std::unique_ptr<Item> arma;
     Personaje() : Entidad(){};
     Personaje(int x, int y) : Entidad(x, y){
     };
