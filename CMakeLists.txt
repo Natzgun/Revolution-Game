@@ -15,6 +15,8 @@ set(MODEL_SOURCES
         Model/Firegun.cpp Model/Firegun.h
         Model/Proyectil.cpp Model/Proyectil.h
         Model/Stage.cpp Model/Stage.h Model/MainMenu.cpp Model/MainMenu.h Model/Obstaculo.cpp Model/Obstaculo.h
+        Model/AnimacionM.cpp
+        Model/AnimacionM.h
 )
 
 set(VIEW_SOURCES
