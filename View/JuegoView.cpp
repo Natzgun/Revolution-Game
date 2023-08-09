@@ -5,7 +5,7 @@
 #include "JuegoView.h"
 
 JuegoView::JuegoView() {
-  //JugadorView::init();
+  PersonajeView::init();
   ProyectilV::init();
   initMusic();
   j1 = std::make_unique<JugadorView>();
@@ -17,15 +17,8 @@ const sf::Sprite &JuegoView::getsprite() const {
   return sprite;
 }
 
-void JuegoView::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
-  j1->actualizar(pos_, dir_);
-
-  sf::Vector2f jugadorPosition = pos_;
-  sf::Vector2f vistaCenter = e1->camara.getCenter();
-  vistaCenter.x = jugadorPosition.x; // Centrar la vista en la posición X del jugador
-  vistaCenter.y = jugadorPosition.y; // Centrar la vista en la posición Y del jugador
-  e1->camara.setCenter(vistaCenter);
-
+void JuegoView::actualizar() {
+  j1->actualizar();
   targetTexture.clear();
  // targetTexture.setView(e1->camara);
   targetTexture.draw(*e1);
@@ -36,10 +29,6 @@ void JuegoView::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
 
 JuegoView::~JuegoView() {
   delete e1;
-  /*delete j1;
-  for (int i = 0; i < proyectiles.size(); i++) {
-    delete proyectiles[i];
-  }*/
 }
 
 sf::Music &JuegoView::getMusic() {

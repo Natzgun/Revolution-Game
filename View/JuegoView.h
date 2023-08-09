@@ -15,6 +15,7 @@
 class JuegoView {
 public:
   std::unique_ptr<JugadorView> j1;
+  std::unique_ptr<JugadorView> j2;
   std::vector<std::unique_ptr<ProyectilV>> proyectiles;
   sf::RenderTexture targetTexture;
   sf::Sprite sprite;
@@ -23,7 +24,7 @@ public:
   Escenario* e1;
   //sf::FloatRect rectanguloMovimiento;
   JuegoView();
-  void actualizar(sf::Vector2f pos_, sf::Vector2i dir_);
+  void actualizar();
   const sf::Sprite & getsprite() const;
   void initMusic();
   sf::Music &getMusic();

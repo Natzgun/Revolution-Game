@@ -14,17 +14,15 @@ namespace Vw {
     //this->currentState = std::make_unique<MenuView>();
     this->mainMenu = new MenuView();
   }
-  void View::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
+  void View::actualizar() {
     //handleEvents();
     if (!getSelectedButton()) {
       mainMenu->actualizar();
     } else {
-      juego->actualizar(pos_, dir_);
+      juego->actualizar();
     }
   }
-  sf::Event& View::getEvent() {
-      return evento;
-  }
+
   /*void View::drawJugador(int x, int y) {
     jugadorPrincipal->setPosicion(x,y);
     jugadorPrincipal->updateA();
@@ -35,9 +33,6 @@ namespace Vw {
     window.clear();
     window.draw(mainMenu->getSprite());
     window.display();
-  }
-  void View::initMenuMusic() {
-    mainMenu->getMusic();
   }
 
   void View::draw() {
@@ -54,23 +49,18 @@ namespace Vw {
     return sf::Mouse::getPosition(window);
   }
 
-  sf::Vector2<int> View::windowSize(){
-    sf::Vector2u win = window.getSize();
-    sf::Vector2i v;
-    v.x = win.x/2; v.y = win.y/2;
-    return v;
-  }
-
   void View::setMediator(Ctlr::Controller* mediator_) {
     mediatorRef = mediator_;
   }
   void View::handleWindowEvents() {
     sf::Vector2f mousePosition;
     while (window.pollEvent(evento)) {
+      //Cerrar ventana
       if (evento.type == sf::Event::Closed) {
         window.close();
         mediatorRef->reactonClose();
       }
+      //Cambiar modo de ventana fullscreen
       else if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::F) {
         fullscreen = !fullscreen;
         if (fullscreen) {
@@ -79,8 +69,9 @@ namespace Vw {
           window.create(sf::VideoMode(1280, 720), "Revolution_Game", sf::Style::Default);
         }
       }
+      //Cambiar de Menuview a JuegoView
       else if (evento.type == sf::Event::MouseButtonPressed) {
-        if (evento.mouseButton.button == 0 && getSelectedButton() == false) {
+        if (evento.mouseButton.button == 0 && !getSelectedButton()) {
           mousePosition = sf::Vector2f(sf::Mouse::getPosition(window));
           selectButton(mousePosition);
           mainMenu->getMusic().stop();
@@ -97,7 +88,6 @@ namespace Vw {
   void View::selectButton(const sf::Vector2f &mousePosition) {
     mainMenu->handleButtonClick(mousePosition);
   }
-
 
   bool View::getSelectedButton() {
     return mainMenu->getSelectionB();

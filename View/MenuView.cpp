@@ -1,7 +1,3 @@
-//
-// Created by natzgun on 25/07/23.
-//
-
 #include <iostream>
 #include "MenuView.h"
 
