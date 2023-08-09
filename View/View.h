@@ -3,6 +3,7 @@
 
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "EstadoView.h"
 #include <iostream>
 #include "JugadorView.h"
 #include "JuegoView.h"
@@ -19,7 +20,8 @@ namespace Vw {
     bool fullscreen;
     sf::RenderWindow window;
     sf::Event evento;
-    std::unique_ptr<JuegoView> juego;
+    std::unique_ptr<EstadoView> estado;
+    std::queue<std::string> coladeEventos;
     MenuView* mainMenu;
     Ctlr::Controller* mediatorRef;
   public:

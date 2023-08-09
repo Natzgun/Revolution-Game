@@ -4,7 +4,6 @@
 #include "../Model/GameWorld.h"
 
 namespace Ctlr {
-
   Controller::Controller() {
     ventanaAbierta = true;
     vista.setMediator(this);
@@ -24,7 +23,6 @@ namespace Ctlr {
         vista.draw();
       }
       //Capturar eventos propios del estado menu o juego
-      vista.handleJuegoEvents();
 
       modelo->actualizar();
       vista.actualizar();

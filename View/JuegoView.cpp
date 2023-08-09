@@ -1,43 +1,44 @@
-//
-// Created by msumi on 19/07/2023.
-//
-
 #include "JuegoView.h"
 
-JuegoView::JuegoView() {
-  PersonajeView::init();
-  ProyectilV::init();
-  j1 = std::make_unique<JugadorView>();
-  targetTexture.create(1280,720);
+JuegoView::JuegoView(std::queue<std::string> * coladeEventos_) :
+  EstadoView(coladeEventos_){
 }
 
-const sf::Sprite &JuegoView::getsprite() const {
-  return sprite;
-}
-
-void JuegoView::actualizar() {
-  j1->actualizar();
-  targetTexture.clear();
-  targetTexture.draw(*j1);
-  targetTexture.display();
-  sprite.setTexture(targetTexture.getTexture());
-}
-
-JuegoView::~JuegoView() {
-  /*delete j1;
-  for (int i = 0; i < proyectiles.size(); i++) {
-    delete proyectiles[i];
-  }*/
-}
-
-void JuegoView::handleJuegoEvents() {
-  j1->handleMoveEvents();
-}
-
-bool JuegoView::j1_Lclick() {
-  return j1->presionarLclick();
-}
-
-bool JuegoView::j1_Rclick() {
-  return j1->presionarRclick();
+void JuegoView::capturarEventos(sf::RenderWindow& window,sf::Event& evento) {
+  while (window.pollEvent(evento)) {
+    //Cuando se presionan
+    if(evento.type == sf::Event::KeyPressed) {
+      if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::W)
+        coladeEventos->push("W_on");
+      else if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::A)
+        coladeEventos->push("A_on");
+      else if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::S)
+        coladeEventos->push("S_on");
+      else if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::D)
+        coladeEventos->push("D_on");
+    }
+    if(evento.type == sf::Event::MouseButtonPressed){
+      if(evento.mouseButton.button == sf::Mouse::Left)
+        coladeEventos->push("Lclick_on");
+      else if(evento.mouseButton.button == sf::Mouse::Right)
+        coladeEventos->push("Rclick_on");
+    }
+    //Cuando se dejan de presionar
+    if(evento.type == sf::Event::KeyReleased) {
+      if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::W)
+        coladeEventos->push("W_off");
+      else if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::A)
+        coladeEventos->push("A_off");
+      else if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::S)
+        coladeEventos->push("S_off");
+      else if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::D)
+        coladeEventos->push("D_off");
+    }
+    if(evento.type == sf::Event::MouseButtonReleased){
+      if(evento.mouseButton.button == sf::Mouse::Left)
+        coladeEventos->push("Lclick_off");
+      else if(evento.mouseButton.button == sf::Mouse::Right)
+        coladeEventos->push("Rclick_off");
+    }
+  }
 }

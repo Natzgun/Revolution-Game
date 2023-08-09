@@ -8,17 +8,16 @@ namespace Vw {
     //sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Revolution_Game", sf::Style::Fullscreen);
     window.create(sf::VideoMode(1280, 720), "Revolution_Game");
     window.setFramerateLimit(60);
-    //JugadorView::init();
-    juego = std::make_unique<JuegoView>();
+    estado = std::make_unique<JuegoView>(&coladeEventos);
     MenuView::init();
     this->mainMenu = new MenuView();
   }
+
   void View::actualizar() {
     //handleEvents();
     if (!getSelectedButton()) {
       mainMenu->actualizar();
     } else {
-      juego->actualizar();
     }
   }
   sf::Event& View::getEvent() {
@@ -40,12 +39,7 @@ namespace Vw {
 
   void View::draw() {
     window.clear();
-    window.draw(juego->getsprite());
     window.display();
-  }
-
-  JuegoView &View::getJuego() {
-    return *juego;
   }
 
   Vector2d<float> View::getMousePosCenter() {
@@ -108,12 +102,6 @@ namespace Vw {
 
   View::~View() {
     delete mainMenu;
-  }
-
-  void View::handleJuegoEvents() {
-    juego->handleJuegoEvents();
-    if(juego->j1_Lclick()){mediatorRef->reactonP1Lclick();}
-    if(juego->j1_Rclick()){mediatorRef->reactonP1Rclick();}
   }
 
   /*void View::handleJ1Events() {
