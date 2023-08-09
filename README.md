@@ -22,6 +22,18 @@ Una vez que hayas instalado SFML, puedes compilar los archivos fuente del proyec
 
 Después de compilar exitosamente, podrás ejecutar el programa resultante y ver la aplicación en funcionamiento.
 
+#### Dependencias
+- Git
+- Compilador c++ (GCC, Clang, Visual C++)
+- Librería SFML
+- Cmake
+- Clion (para ejecutar Cmake automáticamente y para poder revisar y editar el proyecto)
+
+En la dirección que deseas instalar el proyecto se be hacer un git clone de nuestro proyecto con “git clone git@github.com:Natzgun/Revolution-Game.git”
+El proyecto lo puedes abrir con Clion para que clion automáticamente pueda revisar el proyecto y pueda ejecutarlo con Cmake fácilmente. cuando se haya querido abrir el proyecto con Clion necesitarás darle a trust  proyect  para poder usarlo correctamente.
+Ejecuta el proyecto con Clion y automáticamente se ejecutará el CmakeLists para construir el proyecto y al final lanzarlo.
+
+
 ## Contribución
 
 Si deseas contribuir a este proyecto, ¡serás bienvenido! Puedes hacerlo a través de las siguientes etapas:
