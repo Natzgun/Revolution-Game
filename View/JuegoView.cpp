@@ -42,3 +42,10 @@ void JuegoView::capturarEventos(sf::RenderWindow& window,sf::Event& evento) {
     }
   }
 }
+
+Vector2d<float> JuegoView::getMousePos(sf::RenderWindow& window) {
+  float xx = sf::Mouse::getPosition(window).x - (window.getSize().x/2.0);
+  float yy = sf::Mouse::getPosition(window).y - (window.getSize().y/2.0);
+  Vector2d<float> mousePos_(xx,yy);
+  return mousePos_;
+}

@@ -28,4 +28,3 @@ void GameWorld::handleEvent(std::string evento) {
   else if(evento == "rclick")
     p1->lanzar();
 }
-

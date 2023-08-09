@@ -2,6 +2,7 @@
 #define REVOLUTION_GAME_ESTADOVIEW_H
 
 #include <SFML/Graphics.hpp>
+#include "../Util/Vector2d.h"
 #include <queue>
 #include <string>
 
@@ -12,6 +13,7 @@ public:
   EstadoView(std::queue<std::string>*);
   ~EstadoView() = default;
   virtual void capturarEventos(sf::RenderWindow&,sf::Event&) = 0;
+  virtual Vector2d<float> getMousePos(sf::RenderWindow& window) = 0;
 };
 
 

@@ -16,8 +16,8 @@ namespace Ctlr {
     ~Controller() = default;
     void ejecutar();
 
-    void reactonP1Lclick();
-    void reactonP1Rclick();
+    void sendMousePos(Vector2d<float> mouse);
+    void notify(std::string& evento);
     void reactonClose();
   };
 };

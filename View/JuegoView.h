@@ -11,6 +11,7 @@ public:
   JuegoView(std::queue<std::string>*);
   ~JuegoView() = default;
   void capturarEventos(sf::RenderWindow&,sf::Event&) override;
+  Vector2d<float> getMousePos(sf::RenderWindow& window) override;
 };
 
 #endif //REVOLUTION_GAME_JUEGOVIEW_H

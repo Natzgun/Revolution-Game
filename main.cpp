@@ -5,6 +5,8 @@
 #include "View/View.h"
 #include "Controller/Controller.h"
 
+#include "View/Render.h"
+
 int main() {
   Ctlr::Controller controlador;
   controlador.ejecutar();

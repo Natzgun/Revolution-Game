@@ -29,15 +29,13 @@ namespace Vw {
     ~View();
     void setMediator(Ctlr::Controller* mediator_);
     // No se deben llamarse gets
-    sf::Event& getEvent();
-    sf::Vector2<int> windowSize();
+    void handleEvents();
     void handleWindowEvents();
-    void handleJuegoEvents();
-    JuegoView &getJuego();
+    void handleStateEvents();
+
     void actualizar();
     void draw();
     // Keyboard functions
-    Vector2d<float> getMousePosCenter();
 
     void initMenuMusic();
     void drawMenuBG();
@@ -45,9 +43,6 @@ namespace Vw {
     void selectButton(const sf::Vector2f &mousePosition);
     bool getSelectedButton();
     void setStateB(bool);
-
-    // Cargar el jugador
-    // void updateJugador();
   };
 }
 

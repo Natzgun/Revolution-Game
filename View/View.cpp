@@ -20,9 +20,7 @@ namespace Vw {
     } else {
     }
   }
-  sf::Event& View::getEvent() {
-      return evento;
-  }
+
   /*void View::drawJugador(int x, int y) {
     jugadorPrincipal->setPosicion(x,y);
     jugadorPrincipal->updateA();
@@ -42,23 +40,10 @@ namespace Vw {
     window.display();
   }
 
-  Vector2d<float> View::getMousePosCenter() {
-    float xx = sf::Mouse::getPosition(window).x - (window.getSize().x/2.0);
-    float yy = sf::Mouse::getPosition(window).y - (window.getSize().y/2.0);
-    Vector2d<float> mousePos_(xx,yy);
-    return mousePos_;
-  }
-
-  sf::Vector2<int> View::windowSize(){
-    sf::Vector2u win = window.getSize();
-    sf::Vector2i v;
-    v.x = win.x/2; v.y = win.y/2;
-    return v;
-  }
-
   void View::setMediator(Ctlr::Controller* mediator_) {
     mediatorRef = mediator_;
   }
+
   void View::handleWindowEvents() {
     sf::Vector2f mousePosition;
     while (window.pollEvent(evento)) {
@@ -104,7 +89,16 @@ namespace Vw {
     delete mainMenu;
   }
 
-  /*void View::handleJ1Events() {
-    juego->
-  }*/
+  void View::handleStateEvents() {
+    while (!coladeEventos.empty()) {
+      mediatorRef->notify(coladeEventos.front());
+      coladeEventos.pop();
+    }
+  }
+
+  void View::handleEvents() {
+    mediatorRef->sendMousePos(estado->getMousePos(window));
+    handleStateEvents();
+    handleWindowEvents();
+  }
 }

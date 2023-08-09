@@ -2,6 +2,10 @@
 
 Render* Render::render = nullptr;
 
+Render::Render(){
+  targetTexture.create(1280,720);
+}
+
 Render *Render::GetInstance() {
   if(render == nullptr)
     render = new Render();
@@ -23,6 +27,13 @@ void Render::setPov(const Vector2d<float> &) {
 }
 
 void Render::dibujar(const std::string &clave, int indice, const Vector2d<float> &pos, const Vector2d<float> &dir) {
-
+  sprite.setTexture(texturas[clave][indice]);
+  sprite.setOrigin(sprite.getLocalBounds().width/2,sprite.getLocalBounds().height/2);
+  sprite.setPosition(pos.x, pos.y);
+  sprite.setRotation(std::atan2(dir.y, dir.x));
+  targetTexture.draw(sprite);
 }
 
+sf::RenderTexture &Render::getTargetTexture() {
+  return targetTexture;
+}

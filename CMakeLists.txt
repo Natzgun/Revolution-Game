@@ -22,7 +22,6 @@ set(VIEW_SOURCES
         View/Imagen.cpp View/Imagen.h
         View/Animation.cpp View/Animation.h
         View/JugadorView.cpp View/JugadorView.h
-        View/Menu.cpp View/Menu.h
         View/JuegoView.cpp View/JuegoView.h
         View/ProyectilV.cpp View/ProyectilV.h View/MenuView.cpp View/MenuView.h
         View/PersonajeView.cpp

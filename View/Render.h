@@ -4,8 +4,10 @@
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
 #include <vector>
+#include <cmath>
 #include <iostream>
 #include "../Util/Vector2d.h"
+#include <iostream>
 
 class Render {
 public:
@@ -13,7 +15,8 @@ public:
   void cargarTexturas(const std::string& clave, const std::string& path, const int& cantidad);
   void setPov(const Vector2d<float>&);
   void dibujar(const std::string& clave, int indice, const Vector2d<float>& pos, const Vector2d<float>& dir);
-private:
+  sf::RenderTexture& getTargetTexture();
+public:
   std::unordered_map<std::string, std::vector<sf::Texture>> texturas;
   sf::Sprite sprite;
   sf::View pov;
@@ -21,7 +24,7 @@ private:
 
   static Render* render;
   //Constructores
-  Render() {}
+  Render();
   Render(const Render&) = delete;
   void operator=(const Render&) = delete;
 };
