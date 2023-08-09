@@ -6,9 +6,11 @@
 #define REVOLUTION_GAME_FIREGUN_H
 #include "Item.h"
 #include "memory"
+#include <map>
 
 class Firegun: public Item {
 public:
+
     int balas;
     virtual void usar(Vector2d<float> dir, Vector2d<float> pos);
     Firegun()=default;

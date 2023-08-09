@@ -8,15 +8,21 @@
 #include <iostream>
 #include <memory>
 #include "../Util/Estados.h"
+#include "AnimacionM.h"
+#include <tuple>
 
 class Jugador: public Personaje {
 private:
-    bool arriba, abajo, izquierda, derecha;
-    bool disparando, recogiendo, lanzando;
-    Vector2d<float> facing;
-    //bool armaDisponible;
-    int puntos;
-    //char estado; // quieto moviendose disparando
+  bool arriba, abajo, izquierda, derecha;
+  bool disparando, recogiendo, lanzando;
+  Vector2d<float> facing;
+  int puntos;
+
+  static tuple<int,int,string> ATorso;
+  static tuple<int,int,string> APiernas;
+
+  AnimacionM piernas;
+  AnimacionM torso;
 
 public:
     Jugador();

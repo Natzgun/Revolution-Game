@@ -6,6 +6,8 @@
 #include "GameWorld.h"
 #include <string>
 
+tuple<int,int,string> Jugador::APiernas = make_tuple(400,16,"sprBikerLegs_");
+tuple<int,int,string> Jugador::ATorso = make_tuple(200,7,"sprPWalkShotgun_");
 Jugador::Jugador() {
     arriba = false;
     abajo = false;
@@ -15,6 +17,9 @@ Jugador::Jugador() {
     vida = 1;
     arma = nullptr;
     facing.setXY(0,1);
+
+    piernas = AnimacionM( get<0>(APiernas) , get<1>(APiernas));
+    torso = AnimacionM( get<0>(ATorso) , get<1>(ATorso));
 }
 Jugador::Jugador(float x, float y) : Personaje(x, y) {
     arriba = false;

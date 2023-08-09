@@ -3,7 +3,7 @@
 //
 
 #include "Proyectil.h"
-
+string Proyectil::clave = "sprSoup_";
 Proyectil::Proyectil() {
     Proyectil::setDimension(10,20);
     Proyectil::setPosicion(0,0);

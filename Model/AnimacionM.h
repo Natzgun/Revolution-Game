@@ -17,8 +17,6 @@ public:
   AnimacionM(int tiempoMs_,int numFrames_);
   ~AnimacionM() = default;
   void animar();
-  std::string getPath();
-  std::string getClave();
   int getNumFrames();
   int getIndex();
   bool getCiclo();

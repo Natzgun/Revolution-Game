@@ -5,11 +5,12 @@
 #ifndef REVOLUTION_GAME_PROYECTIL_H
 #define REVOLUTION_GAME_PROYECTIL_H
 #include "Entidad.h"
+#include <string>
 
 class Proyectil:public Entidad {
 private:
-    // VEc2d dimension, posicion, posicioncentral
-    constexpr static const float rapi = 15;
+    constexpr static float rapi = 15;
+    static string clave;
     Vector2d<float> velocidad;
 public:
     Proyectil();
