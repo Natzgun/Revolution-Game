@@ -1,31 +1,24 @@
-#ifndef MVC_ARCHITECTURE_SFML_MODEL_H
-#define MVC_ARCHITECTURE_SFML_MODEL_H
+#ifndef REVOLUTION_GAME_MODELO_H
+#define REVOLUTION_GAME_MODELO_H
 
-// Archivo Model.h
-#pragma once
-#include "Juego.h"
-#include <memory>
+#include <string>
 
 namespace Ctlr {
   class Controller;
 }
+
 namespace Mdl {
   class Model {
   private:
     Ctlr::Controller* mediatorRef;
   public:
-    Juego myJuego;
-    /*Menu myMenu;*/
-    // Atributos y datos del modelo
+    Model() = default;
+    ~Model() = default;
 
-    Model();
-    ~Model();
+    virtual void actualizar() = 0;
+    virtual void handleEvent(std::string) = 0;
     void setMediator(Ctlr::Controller* mediator_);
-    void actualizar();
-    void reactonLclick();
-    void reactonRclick();
-    // Métodos y funciones relacionados con la lógica y los datos del modelo
   };
 };
 
-#endif //MVC_ARCHITECTURE_SFML_MODEL_H
+#endif //REVOLUTION_GAME_MODELO_H

@@ -9,12 +9,13 @@ set(MODEL_SOURCES
         Model/Model.cpp Model/Model.h
         Model/Entidad.cpp Model/Entidad.h
         Model/Jugador.cpp Model/Jugador.h
-        Model/Juego.cpp Model/Juego.h
+        Model/GameWorld.cpp Model/GameWorld.h
         Model/Personaje.cpp Model/Personaje.h
         Model/Item.cpp Model/Item.h
         Model/Firegun.cpp Model/Firegun.h
         Model/Proyectil.cpp Model/Proyectil.h
-        Model/Stage.cpp Model/Stage.h Model/MainMenu.cpp Model/MainMenu.h Model/Obstaculo.cpp Model/Obstaculo.h)
+        Model/Stage.cpp Model/Stage.h Model/MainMenu.cpp Model/MainMenu.h Model/Obstaculo.cpp Model/Obstaculo.h
+)
 
 set(VIEW_SOURCES
         View/View.cpp View/View.h
@@ -27,12 +28,15 @@ set(VIEW_SOURCES
         View/PersonajeView.cpp
         View/PersonajeView.h
         View/EstadoView.cpp
-        View/EstadoView.h)
+        View/EstadoView.h
+        View/Render.cpp
+        View/Render.h)
 
 set(CONTROLLER_SOURCES
         Controller/Controller.cpp Controller/Controller.h
         Controller/Invoker.cpp Controller/Invoker.h
-        Controller/Command.cpp Controller/Command.h)
+        Controller/Command.cpp Controller/Command.h
+)
 
 set(UTIL_SOURCES
         Util/Estados.h

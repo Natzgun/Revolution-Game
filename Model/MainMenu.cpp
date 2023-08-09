@@ -3,7 +3,7 @@
 //
 
 #include "MainMenu.h"
-#include "Juego.h"
+#include "GameWorld.h"
 
 MainMenu::MainMenu() {
   looking = 0;
@@ -53,26 +53,26 @@ void MainMenu::doChooseLevel() {
     switch (looking) {
       case 0:
         cout << "eligiendo level 1 ";
-        Juego::pathNivel += "1.csv";
+        GameWorld::pathNivel += "1.csv";
         break;
       case 1:
         cout << "eligiendo level 2 ";
-        Juego::pathNivel += "2.csv";
+        GameWorld::pathNivel += "2.csv";
         break;
       case 2:
         cout << "eligiendo level 3 ";
-        Juego::pathNivel += "3.csv";
+        GameWorld::pathNivel += "3.csv";
         break;
       case 3:
         cout << "eligiendo level 4 ";
-        Juego::pathNivel += "4.csv";
+        GameWorld::pathNivel += "4.csv";
         break;
       case 4:
         cout << "eligiendo level 5 ";
-        Juego::pathNivel += "5.csv";
+        GameWorld::pathNivel += "5.csv";
         break;
       default:
-        Juego::pathNivel += "1.csv";
+        GameWorld::pathNivel += "1.csv";
     }
 
   }

@@ -39,7 +39,7 @@ public:
     void setFacing(Vector2d<float>);
 
     void actualizar() override;
-    //void cogerArma(&Juego); // incompleto
+    //void cogerArma(&GameWorld); // incompleto
 
     void imprimir();
     ~Jugador()override=default;

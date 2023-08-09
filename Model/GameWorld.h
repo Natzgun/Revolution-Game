@@ -1,13 +1,14 @@
 
-#ifndef REVOLUTION_GAME_JUEGO_H
-#define REVOLUTION_GAME_JUEGO_H
+#ifndef REVOLUTION_GAME_GAMEWORLD_H
+#define REVOLUTION_GAME_GAMEWORLD_H
 
+#include "Model.h"
 #include "Jugador.h"
 #include "Stage.h"
 #include "memory"
 #include <iostream>
 
-class Juego {
+class GameWorld : public Mdl::Model{
 public:
     std::unique_ptr<Jugador> p1 = nullptr;
     Stage *nivel;
@@ -16,13 +17,14 @@ public:
     //Escenario(Enemigos, obstaculos, items);
     //ProyectilesEnemigos
     //Proyectiles
-    Juego();
-    Juego(string);
-    void actualizar();
-    ~Juego(){delete nivel;}
+    GameWorld();
+    GameWorld(string);
+    void actualizar() override;
+    void handleEvent(std::string) override;
+    ~GameWorld(){delete nivel;}
 
     //Verificar colisiones();
     //if(item.vel == 0) es intangible y podra ser recogido por algun personaje
 };
 
-#endif //REVOLUTION_GAME_JUEGO_H
+#endif //REVOLUTION_GAME_GAMEWORLD_H

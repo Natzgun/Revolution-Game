@@ -3,7 +3,7 @@
 //
 
 #include "Jugador.h"
-#include "Juego.h"
+#include "GameWorld.h"
 #include <string>
 
 Jugador::Jugador() {
