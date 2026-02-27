@@ -11,13 +11,14 @@
 #include "States/GameState.h"
 #include <memory>
 #include "SFML/Audio.hpp"
+#include <optional>
 
 class JuegoView {
 public:
   std::unique_ptr<JugadorView> j1;
   std::vector<std::unique_ptr<ProyectilV>> proyectiles;
   sf::RenderTexture targetTexture;
-  sf::Sprite sprite;
+  std::optional<sf::Sprite> sprite;
   sf::Music musicaGame;
 
   Escenario* e1;

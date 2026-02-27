@@ -1,9 +1,9 @@
 #include "Animation.h"
 
-Animation::Animation(): frameTime(0.1f), clock(), sprite() {
+Animation::Animation(): frameTime(0.1f), clock() {
 }
 
-Animation::Animation(std::vector<sf::Texture>* _frames): frameTime(0.1f), clock(), sprite() {
+Animation::Animation(std::vector<sf::Texture>* _frames): frameTime(0.1f), clock() {
   // Cargar las imágenes y configurar los sprites
   setTetures(_frames);
 }
@@ -29,13 +29,13 @@ bool Animation::animar() {
       currentFrame = 0;
       completado = true;
     }
-    sprite.setTexture((*frames)[currentFrame]);
+    sprite->setTexture((*frames)[currentFrame]);
     clock.restart();
   }
   return completado;
 }
 sf::Sprite &Animation::getSprite() {
-  return sprite;
+  return *sprite;
 }
 
 void Animation::setTetures(std::vector<sf::Texture> *_frames){
@@ -43,7 +43,7 @@ void Animation::setTetures(std::vector<sf::Texture> *_frames){
   numFrames = frames->size();
   currentFrame = 0;
   clock.restart();
-  sprite.setTexture((*frames)[currentFrame]);
+  sprite.emplace((*frames)[currentFrame]);
 }
 
 std::vector<sf::Texture> Animation::cargarImagenes(const int& n, const std::string& path) {
@@ -62,5 +62,5 @@ sf::Texture Animation::cargarImagen(const std::string& path) {
 }
 
 void Animation::setPos(sf::Sprite& sp, const float & x, const float & y) {
-  sp.setPosition(x,y);
+  sp.setPosition({x,y});
 }

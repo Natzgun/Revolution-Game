@@ -1,12 +1,13 @@
 #include "View.h"
 #include "../Controller/Controller.h"
+#include <optional>
 
 namespace Vw {
 
   View::View() {
     fullscreen = false;
     //sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Revolution_Game", sf::Style::Fullscreen);
-    window.create(sf::VideoMode(1280, 720), "Revolution_Game");
+    window.create(sf::VideoMode({1280, 720}), "Revolution_Game");
     window.setFramerateLimit(60);
     //JugadorView::init();
     juego = std::make_unique<JuegoView>();
@@ -21,9 +22,6 @@ namespace Vw {
     } else {
       juego->actualizar(pos_, dir_);
     }
-  }
-  sf::Event& View::getEvent() {
-      return evento;
   }
   /*void View::drawJugador(int x, int y) {
     jugadorPrincipal->setPosicion(x,y);
@@ -66,21 +64,23 @@ namespace Vw {
   }
   void View::handleWindowEvents() {
     sf::Vector2f mousePosition;
-    while (window.pollEvent(evento)) {
-      if (evento.type == sf::Event::Closed) {
+    while (std::optional<sf::Event> event = window.pollEvent()) {
+      if (event->is<sf::Event::Closed>()) {
         window.close();
         mediatorRef->reactonClose();
       }
-      else if (evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::F) {
-        fullscreen = !fullscreen;
-        if (fullscreen) {
-          window.create(sf::VideoMode::getDesktopMode(), "Revolution_Game", sf::Style::Fullscreen);
-        } else {
-          window.create(sf::VideoMode(1280, 720), "Revolution_Game", sf::Style::Default);
+      else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+        if (keyPressed->code == sf::Keyboard::Key::F) {
+          fullscreen = !fullscreen;
+          if (fullscreen) {
+            window.create(sf::VideoMode::getDesktopMode(), "Revolution_Game", sf::State::Fullscreen);
+          } else {
+            window.create(sf::VideoMode({1280, 720}), "Revolution_Game");
+          }
         }
       }
-      else if (evento.type == sf::Event::MouseButtonPressed) {
-        if (evento.mouseButton.button == 0 && getSelectedButton() == false) {
+      else if (const auto* mouseButtonPressed = event->getIf<sf::Event::MouseButtonPressed>()) {
+        if (mouseButtonPressed->button == sf::Mouse::Button::Left && getSelectedButton() == false) {
           mousePosition = sf::Vector2f(sf::Mouse::getPosition(window));
           selectButton(mousePosition);
           mainMenu->getMusic().stop();
@@ -91,7 +91,7 @@ namespace Vw {
   }
 
   bool View::getKeyboard_Escape() {
-    return sf::Keyboard::isKeyPressed(sf::Keyboard::Escape);
+    return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape);
   }
 
   void View::selectButton(const sf::Vector2f &mousePosition) {

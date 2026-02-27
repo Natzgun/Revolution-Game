@@ -18,7 +18,6 @@ namespace Vw {
   private:
     bool fullscreen;
     sf::RenderWindow window;
-    sf::Event evento;
     std::unique_ptr<JuegoView> juego;
     MenuView* mainMenu;
     Ctlr::Controller* mediatorRef;
@@ -28,7 +27,6 @@ namespace Vw {
     ~View();
     void setMediator(Ctlr::Controller* mediator_);
     // No se deben llamarse gets
-    sf::Event& getEvent();
     sf::Vector2<int> windowSize();
     void handleWindowEvents();
     JuegoView &getJuego();

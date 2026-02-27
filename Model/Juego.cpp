@@ -6,7 +6,7 @@
 vector<unique_ptr<Proyectil>> Juego::proyectiles = {};
 Juego::Juego() {
   p1 = make_unique<Jugador>(500,500);
-  nivel = Stage("../Resources/matrizStage.csv");
+  nivel = Stage("Resources/matrizStage.csv");
 }
 Juego::Juego(string path) {
   p1 = make_unique<Jugador>();

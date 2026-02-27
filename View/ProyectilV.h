@@ -3,11 +3,12 @@
 
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
+#include <optional>
 
 class ProyectilV: public sf::Drawable {
 public:
   //Animation *animation;
-  sf::Sprite sprite;
+  std::optional<sf::Sprite> sprite;
   static sf::Texture normal;
   static sf::Texture especial;
 

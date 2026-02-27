@@ -1,7 +1,7 @@
 #ifndef REVOLUTION_GAME_IMAGEN_H
 #define REVOLUTION_GAME_IMAGEN_H
 
-
+#include <vector>
 #include <SFML/Graphics/Texture.hpp>
 
 class Imagen {

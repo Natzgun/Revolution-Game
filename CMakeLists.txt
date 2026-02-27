@@ -1,8 +1,17 @@
-cmake_minimum_required(VERSION 3.25)
-project(Revolution_Game)
+cmake_minimum_required(VERSION 3.28)
+project(Revolution_Game LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
-find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+
+include(FetchContent)
+FetchContent_Declare(SFML
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG 3.0.2
+    GIT_SHALLOW ON
+    EXCLUDE_FROM_ALL
+    SYSTEM)
+FetchContent_MakeAvailable(SFML)
 
 # Variables para fuentes cpp y cabeceras
 set(MODEL_SOURCES
@@ -37,12 +46,22 @@ add_executable(Revolution_Game
         ${VIEW_SOURCES}
         ${CONTROLLER_SOURCES})
 
-# Esta era la manera antigua pero lo guardamos por siacaso
-# add_executable(Revolution_Game main.cpp Model/Model.cpp Model/Model.h View/View.cpp View/View.h Controller/Controller.cpp Controller/Controller.h)
-target_link_libraries(Revolution_Game
-        sfml-system
-        sfml-window
-        sfml-graphics
-        sfml-audio
-        sfml-network
-        )
+target_link_libraries(Revolution_Game PRIVATE SFML::Graphics SFML::Audio SFML::Network)
+target_compile_features(Revolution_Game PRIVATE cxx_std_17)
+
+# Copiar recursos al directorio de salida
+add_custom_command(
+    TARGET Revolution_Game POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/Resources
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Resources
+    COMMENT "Copying Resources to output directory"
+)
+
+if(WIN32)
+    add_custom_command(
+        TARGET Revolution_Game
+        COMMENT "Copy OpenAL DLL"
+        PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:Revolution_Game>
+        VERBATIM)
+endif()

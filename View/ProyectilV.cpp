@@ -4,25 +4,27 @@ sf::Texture ProyectilV::normal = {};
 sf::Texture ProyectilV::especial = {};
 
 void ProyectilV::init() {
-  normal = Animation::cargarImagen("../Resources/Otros/sprSoup_0.png");
-  especial = Animation::cargarImagen("../Resources/Otros/sprSoup_0.png");
+  normal = Animation::cargarImagen("Resources/Otros/sprSoup_0.png");
+  especial = Animation::cargarImagen("Resources/Otros/sprSoup_0.png");
 }
 
 ProyectilV::ProyectilV() {
-  sprite.setOrigin(sprite.getLocalBounds().width/2,sprite.getLocalBounds().height/2);
+  sprite.emplace(normal);
+  auto bounds = sprite->getLocalBounds();
+  sprite->setOrigin({bounds.size.x/2.0f, bounds.size.y/2.0f});
 }
 
 void ProyectilV::setPosicion(float x, float y) {
-  sprite.setPosition(x,y);
+  sprite->setPosition({x,y});
 }
 
 void ProyectilV::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-  target.draw(sprite, states);
+  target.draw(*sprite, states);
 }
 
 void ProyectilV::updateA() {
 }
 
 sf::Sprite &ProyectilV::getSprite() {
-  return sprite;
+  return *sprite;
 }

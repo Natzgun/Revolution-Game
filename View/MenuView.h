@@ -8,6 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <array>
+#include <optional>
 //#include "Menu.h"
 #include "Animation.h"
 #include "States/GameState.h"
@@ -19,15 +20,15 @@ public:
   static std::vector<sf::Texture> menuTexture;
   sf::Music music;
   sf::Texture backgroundTexture;
-  sf::Sprite backgroundSprite;
+  std::optional<sf::Sprite> backgroundSprite;
 
   //Menu* mn1;
   sf::RenderTexture targetTexture;
-  sf::Sprite sprite;
+  std::optional<sf::Sprite> sprite;
 
   // Esto de aqui es para los botones
   std::array<sf::Texture,3> buttonTextures;
-  std::array<sf::Sprite,3> buttons;
+  std::array<std::optional<sf::Sprite>,3> buttons;
   bool selectedItem;
 
   MenuView();

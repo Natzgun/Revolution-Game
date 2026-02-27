@@ -5,6 +5,7 @@
 #include <vector>
 #include <cmath>
 #include <type_traits>
+#include <optional>
 
 class Animation {
 private:
@@ -13,7 +14,7 @@ private:
   int currentFrame{};
   sf::Clock clock;
   std::vector<sf::Texture>* frames{};
-  sf::Sprite sprite;
+  std::optional<sf::Sprite> sprite;
   sf::Vector2f a;
 public:
   Animation();
@@ -27,7 +28,7 @@ public:
   static sf::Texture cargarImagen(const std::string& path);
   static void setPos(sf::Sprite&, const float&, const float&);
   static void setDir(sf::Sprite& sp, float x, float y){
-    sp.setRotation(std::atan2(y, x)*180/3.14);
+    sp.setRotation(sf::degrees(std::atan2(y, x)*180.0f/3.14f));
   }
 };
 

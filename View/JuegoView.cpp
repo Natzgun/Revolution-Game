@@ -10,11 +10,14 @@ JuegoView::JuegoView() {
   initMusic();
   j1 = std::make_unique<JugadorView>();
   e1 = new Escenario();
-  targetTexture.create(1280,720);
+  if (!targetTexture.resize({1280,720})) {
+    throw std::runtime_error("Failed to create render texture");
+  }
+  sprite.emplace(targetTexture.getTexture());
 }
 
 const sf::Sprite &JuegoView::getsprite() const {
-  return sprite;
+  return *sprite;
 }
 
 void JuegoView::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
@@ -31,7 +34,7 @@ void JuegoView::actualizar(sf::Vector2f pos_, sf::Vector2i dir_) {
   targetTexture.draw(*e1);
   targetTexture.draw(*j1);
   targetTexture.display();
-  sprite.setTexture(targetTexture.getTexture());
+  sprite->setTexture(targetTexture.getTexture());
 }
 
 JuegoView::~JuegoView() {
@@ -47,7 +50,7 @@ sf::Music &JuegoView::getMusic() {
 }
 
 void JuegoView::initMusic() {
-  if (!musicaGame.openFromFile("../Resources/Gamemusic.ogg"))
+  if (!musicaGame.openFromFile("Resources/Gamemusic.ogg"))
     throw std::runtime_error("No se pudo cargar la musica");
   musicaGame.setVolume(100);
   musicaGame.setVolume(musicaGame.getVolume() / 2);

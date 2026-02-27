@@ -1,8 +1,8 @@
 #include "Menu.h"
 
 Menu::Menu() {
-  setBackground();
   initMusic();
+  setBackground();
 }
 
 Menu::~Menu() {
@@ -10,7 +10,7 @@ Menu::~Menu() {
 }
 
 void Menu::initMusic() {
-  if (!music.openFromFile("../Resources/amazonico.ogg"))
+  if (!music.openFromFile("Resources/amazonico.ogg"))
     throw std::runtime_error("No se pudo cargar la musica");
   music.setVolume(100);
   music.setVolume(music.getVolume() / 2);
@@ -18,16 +18,16 @@ void Menu::initMusic() {
 }
 
 sf::Sprite &Menu::getSprite() {
-  return backgroundSprite;
+  return *backgroundSprite;
 }
 
 void Menu::setBackground() {
-  if (!backgroundTexture.loadFromFile("../Resources/wallMenu2.jpg"))
+  if (!backgroundTexture.loadFromFile("Resources/wallMenu2.jpg"))
   {
     // Error al cargar la imagen de fondo
     throw std::runtime_error("No se pudo cargar la imagen");
   }
-  backgroundSprite.setTexture(backgroundTexture);
+  backgroundSprite.emplace(backgroundTexture);
 }
 
 sf::Music &Menu::getMusic() {

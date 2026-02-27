@@ -7,11 +7,12 @@
 
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
+#include <optional>
 
 class Escenario: public sf::Drawable {
 public:
   sf::Texture backgroundTexture;
-  sf::Sprite backgroundSprite;
+  std::optional<sf::Sprite> backgroundSprite;
   sf::View camara;
 
   Escenario();
